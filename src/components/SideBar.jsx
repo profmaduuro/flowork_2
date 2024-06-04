@@ -136,17 +136,17 @@ const SideBar=(props)=> {
 
             <ul id='floor-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
-                <li>
-                    <a href="#">
+                <li onClick={props.floorsummaryclick}>
+                    <Link to="/Floorsummary">
                         <i className='bi bi-circle'></i>
                 <span>Floor Summary</span>
-                </a>
+                </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.dispatchclick}>
+                    <Link to="/Dispatch">
                         <i className='bi bi-circle'></i>
                 <span>Dispatch</span>
-                </a>
+                </Link>
                 </li>
                 <li>
                     <a href="#">

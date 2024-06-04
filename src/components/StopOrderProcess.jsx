@@ -8,8 +8,8 @@ const StopOrderProcess = (props) => {
             </a>
      {/* <h3 className='bi bi-home'>StopOrder Processing</h3> */}
 
-     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light card_10">
+     <div className=''>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white card_10">
             <div class="container-fluid">
                 {/* <a href="#" class="navbar-brand">Brand</a> */}
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

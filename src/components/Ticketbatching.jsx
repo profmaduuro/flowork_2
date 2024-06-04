@@ -6,7 +6,9 @@ export const Ticketbatching = (props) => {
         <div>
             <a href="/home">
                 <i className='bi bi-house-door'></i>
+                
             </a>
+            <h5>  Tickets Batching</h5>
         </div>
 
         <br />
@@ -26,7 +28,7 @@ export const Ticketbatching = (props) => {
                 </li>
             </ul> */}
 
-            <h5>Grower Tickets</h5>
+            
             {/* <div class="tab-content pt-5" id="tab-content">
                 <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0"> */}
                     <div className='table table-responsive'>
@@ -74,9 +76,9 @@ export const Ticketbatching = (props) => {
                     </div>
                     
                 </div>
-                <div class="tab-pane" id="icon-tabpanel-1" role="tabpanel" aria-labelledby="icon-tab-1">
-                <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0">
-                    <div className='table table-responsive'>
+                {/* <div class="tab-pane" id="icon-tabpanel-1" role="tabpanel" aria-labelledby="icon-tab-1">
+                    <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0">
+                        <div className='table table-responsive'>
                         <table className='table table-striped table-hover'>
                             <thead>
                                 <th>GDN #</th>
@@ -141,12 +143,12 @@ export const Ticketbatching = (props) => {
                     </div>
                 </div>
                 
-                </div>
+                </div> */}
                 {/* <div class="tab-pane" id="icon-tabpanel-2" role="tabpanel" aria-labelledby="icon-tab-2">Laying</div>
                 <div class="tab-pane" id="icon-tabpanel-2" role="tabpanel" aria-labelledby="icon-tab-2">Booking</div> */}
-            {/* </div> */}
+             {/* </div>
        
-        {/* // </div> */}
+        </div> */}
 
         {/* modals */}
 
@@ -182,7 +184,8 @@ export const Ticketbatching = (props) => {
 
                 <br />
 
-                <div className='card_10'>
+                <div className='card_10 table-responsive'>
+                    <div className=''>
                     <table className='table table-striped'>
                         <thead>
                             <th>Grower</th>
@@ -259,6 +262,7 @@ export const Ticketbatching = (props) => {
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                 </div>
                 <br />
                 <div>
