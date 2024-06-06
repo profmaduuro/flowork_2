@@ -76,7 +76,7 @@ function PageTitle() {
 
       </div> */}
 
-    <div class="container">
+    <div class="">
       <div class="row">
         <div class="col-md-3">
           <div class="card card-1">

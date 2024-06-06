@@ -94,6 +94,12 @@ const SideBar=(props)=> {
 
             <ul id='receiving-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
+                <li onClick={props.scaleclick}>
+                    <Link to="/Scale">
+                        <i className='bi bi-circle'></i>
+                <span>Scale</span>
+                </Link>
+                </li>
                 <li onClick={props.deliveriesclick}>
                     <Link to="/Deliverynotes">
                         <i className='bi bi-circle'></i>
@@ -429,7 +435,8 @@ const SideBar=(props)=> {
         <li className='nav-heading'>Pages
         </li>
         {navList.map(nav => (
-            <NavItem key={nav._id} nav={nav}/>
+            
+            <NavItem key={nav._id} nav={nav} />
 
         ))}
     

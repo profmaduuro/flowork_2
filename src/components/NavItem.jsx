@@ -3,7 +3,8 @@ import React from 'react';
 function NavItem({ nav }) {
   return (
     <li className='nav-item'>
-    <a href="#" className='nav-link collapsed'>
+    <a href="#" className='nav-link collapsed' id=
+  {nav._id}>
      <i className={nav.icon}></i>
      <span>{nav.name}</span>
     </a>
