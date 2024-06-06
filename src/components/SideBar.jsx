@@ -435,11 +435,11 @@ const SideBar=(props)=> {
         <li className='nav-item'>
             <a href="#"
             className='nav-link collapsed'
-            data-bs-target='#settings-nav'
-            data-bs-toggle='collapse'>
+            data-bs-target=''
+            data-bs-toggle=''>
                 <i className='bi bi-gear'></i>
                 <span>GMS</span>
-                <i className='bi bi-chevron-down ms-auto'></i>
+                <i className=''></i>
 
             </a>
         </li>
@@ -447,11 +447,11 @@ const SideBar=(props)=> {
         <li className='nav-item'>
             <a href="#"
             className='nav-link collapsed'
-            data-bs-target='#settings-nav'
-            data-bs-toggle='collapse'>
+            data-bs-target=''
+            data-bs-toggle=''>
                 <i className='bi bi-gear'></i>
                 <span>QuickAcc</span>
-                <i className='bi bi-chevron-down ms-auto'></i>
+                <i className=''></i>
 
             </a>
         </li>
@@ -459,11 +459,11 @@ const SideBar=(props)=> {
         <li className='nav-item'>
             <a href="#"
             className='nav-link collapsed'
-            data-bs-target='#settings-nav'
-            data-bs-toggle='collapse'>
+            data-bs-target=''
+            data-bs-toggle=''>
                 <i className='bi bi-gear'></i>
                 <span>LMS</span>
-                <i className='bi bi-chevron-down ms-auto'></i>
+                <i className=''></i>
 
             </a>
         </li>
