@@ -32,7 +32,7 @@ export const Scale = (props) => {
 
             const temp_bacode = document.getElementById("temp_barcode").value
 
-            if (temp_bacode!=="") {
+            if (temp_bacode.trim()!=="") {
                 const d = new Date();
                 let date = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
 
