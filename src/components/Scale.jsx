@@ -1,18 +1,95 @@
 import React from 'react'
+//const SerialPort=require("serialport")
+//const ReadLine=require("@serialport/parser-readline")
 
 export const Scale = (props) => {
+
+    let mass=0;
+
+
+
+    const cancelMass=()=>{
+        mass=0;
+        document.getElementById("massButton").disabled = false;
+        document.getElementById("temp_barcode").disabled = true;
+        document.getElementById("temp_barcode").value=""
+        document.getElementById("massButton").focus()
+        document.getElementById("mass").innerText=mass
+    }
+    const getMass=()=>{
+        mass=0;
+
+        mass=Math.round( Math.random()*130);
+        document.getElementById("temp_barcode").disabled = false;
+        document.getElementById("massButton").disabled = true;
+        document.getElementById("mass").innerText=mass
+        document.getElementById("temp_barcode").focus()
+
+
+    }
+
+    const saveScaleData=()=>{
+
+        if(mass>15) {
+
+            const temp_bacode = document.getElementById("temp_barcode").value
+
+            if (temp_bacode.trim()!=="") {
+                const d = new Date();
+                let date = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
+
+                const requestOptions = {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        userid: 1,
+                        seasonid: 1,
+                        temp_bacode: temp_bacode,
+                        mass: mass,
+                        created_at: date
+                    })
+                };
+
+
+                fetch('http://localhost/king/api/scale.php', requestOptions)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data[0])
+                        if (data[0].response === "success") {
+
+                            document.getElementById("response").innerText = temp_bacode + " received successfully with mass of " + mass + "kgs"
+                            document.getElementById("temp_barcode").value = ""
+                            document.getElementById("temp_barcode").disabled = true;
+                            document.getElementById("massButton").disabled = false;
+                            document.getElementById("massButton").focus()
+
+
+                        } else {
+                            document.getElementById("response").innerText = data[0].response
+                        }
+                    });
+            }else {
+                document.getElementById("response").innerText = " Capture Barcode"
+            }
+        }else {
+            document.getElementById("response").innerText = mass+"kg => Bale Underweight "
+        }
+    }
+
+
   return (
     <div>
         <br />
 
             <div class="col-6 center">
                 <div className='card_10'>
+
+                        <button id="massButton" className='btn btn-primary' onClick={getMass} autoFocus>GET BALE MASS</button>
                     <form action="">
-                        <button className='btn btn-primary'>GET BALE MASS</button>
                          <br />
                          <div className='row'>
                          <div className='col'>
-                           <p><b>BALE MASS :</b> 50kgs</p>
+                           <p><b>BALE MASS :</b> <h2 id="mass"></h2></p>
                          </div>
                          <div className='col'>
                            
@@ -21,21 +98,19 @@ export const Scale = (props) => {
                            
                          </div>
                          <div className='col'>
-                           <a href="#">Cancel Mass</a>
+                           <a href="#" onClick={cancelMass}>Cancel Mass</a>
                          </div>
 
                          </div>
-                         
+                    </form>
                         <label htmlFor=""></label>
-                        <input type="text" className='form-control' placeholder='SCAN BARCODE'/>
+                        <input type="text" id='temp_barcode' className='form-control' placeholder='SCAN BARCODE' onChange={saveScaleData}/>
                         <br />
                         <div>
-                            <p>VL111111 received successfully</p>
+                            <p id="response"></p>
                         </div>
-                       
 
-                        
-                    </form>
+
 
                 </div>
                     {/* <div class="screen">
