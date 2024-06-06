@@ -6,8 +6,9 @@ export const Tickets = (props) => {
         <div>
         <a href="/home">
                 <i className='bi bi-house-door'></i>
-                <h5>Ticket Printing</h5>
-        </a>
+                </a>
+                <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Ticket Printing</h5>
+        
 
         </div>
 

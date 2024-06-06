@@ -432,13 +432,62 @@ const SideBar=(props)=> {
             </ul>
         </li>
 
-        <li className='nav-heading'>Pages
+        <li className='nav-item'>
+            <a href="#"
+            className='nav-link collapsed'
+            data-bs-target='#settings-nav'
+            data-bs-toggle='collapse'>
+                <i className='bi bi-gear'></i>
+                <span>GMS</span>
+                <i className='bi bi-chevron-down ms-auto'></i>
+
+            </a>
         </li>
-        {navList.map(nav => (
+
+        <li className='nav-item'>
+            <a href="#"
+            className='nav-link collapsed'
+            data-bs-target='#settings-nav'
+            data-bs-toggle='collapse'>
+                <i className='bi bi-gear'></i>
+                <span>QuickAcc</span>
+                <i className='bi bi-chevron-down ms-auto'></i>
+
+            </a>
+        </li>
+
+        <li className='nav-item'>
+            <a href="#"
+            className='nav-link collapsed'
+            data-bs-target='#settings-nav'
+            data-bs-toggle='collapse'>
+                <i className='bi bi-gear'></i>
+                <span>LMS</span>
+                <i className='bi bi-chevron-down ms-auto'></i>
+
+            </a>
+        </li>
+
+        <br />
+        <br />
+        <br />
+
+        <li className='nav-item' onClick={props.loginclick}>
+            <Link to = "/Login"
+            className='nav-link collapsed'
+            data-bs-target=''
+            data-bs-toggle='collapse'>
+                <i className='bi bi-gear'></i>
+                <span>Log Out</span>
+                <i className=''></i>
+
+            </Link>
+        </li>
+        {/* {navList.map(nav => (
             
             <NavItem key={nav._id} nav={nav} />
 
-        ))}
+        ))} */}
     
      </ul>
     </aside>

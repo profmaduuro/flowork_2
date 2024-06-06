@@ -7,9 +7,11 @@ export const Balereceiving = (props) => {
     <div>
         <div>
             <a href="/home">
-                <i className='bi bi-house-door'></i>
-                <h5>Bale Receiving</h5>
-            </a>
+            <i className='bi bi-house-door'></i>
+                </a>
+                
+                <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Bale Receiving</h5>
+            
         </div>
         
 
