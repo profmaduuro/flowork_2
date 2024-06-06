@@ -76,7 +76,7 @@ function PageTitle() {
 
       </div> */}
 
-    <div class="container">
+    <div class="">
       <div class="row">
         <div class="col-md-3">
           <div class="card card-1">
@@ -162,6 +162,7 @@ function PageTitle() {
 
         <b>Deliveries</b>
     
+        <div className='table table-responsive'>
 
         <table className="table table-striped table-hover">
             <thead>
@@ -330,6 +331,9 @@ function PageTitle() {
 
             </tbody>
         </table>
+
+        </div>
+        
 
   
         
