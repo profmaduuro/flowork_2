@@ -162,6 +162,7 @@ function PageTitle() {
 
         <b>Deliveries</b>
     
+        <div className='table table-responsive'>
 
         <table className="table table-striped table-hover">
             <thead>
@@ -330,6 +331,9 @@ function PageTitle() {
 
             </tbody>
         </table>
+
+        </div>
+        
 
   
         

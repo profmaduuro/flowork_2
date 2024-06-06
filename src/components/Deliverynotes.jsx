@@ -323,7 +323,7 @@ export const Deliverynotes = (props) => {
                                 <h6></h6>
                             </div>
                             <div className='col'>                                
-                                <button type="button" class="btn btn-danger">TDN00021546</button>
+                                <button type="button" class="btn btn-primary">TDN00021546</button>
                             </div> 
                             <div className='col'>
                                 <h6></h6>
