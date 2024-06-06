@@ -6,6 +6,8 @@ import React from 'react'
 
 export const Deliverynotes = (props) => {
 
+    let truckid=0;
+
     const createTransporter=()=>{
         const location=document.getElementById("location").value
         const vehicleid=document.getElementById("vehicleid").value
@@ -32,8 +34,8 @@ export const Deliverynotes = (props) => {
         fetch('http://localhost/king/api/create_transporter_dnote.php', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data.response)
-                if (data.response[0].response==="success"){
+                //console.log(data.response)
+                if (data[0].response==="success"){
 
                     // const location=document.getElementById("location").clear
                     // const vehicleid=document.getElementById("vehicleid").clear
@@ -41,6 +43,8 @@ export const Deliverynotes = (props) => {
                     // const driverid=document.getElementById("driverid").clear
                     // const name=document.getElementById("name").clear
                     // const sale_date=document.getElementById("sale_date").clear
+                    truckid=data[0].id
+
 
                 }else {
 
@@ -49,7 +53,46 @@ export const Deliverynotes = (props) => {
     }
 
 
+    const createTransporterGrowers=()=>{
 
+        const bales=document.getElementById("bales").value
+        const grower_num=document.getElementById("grower_num").value
+        const d = new Date();
+        let date=d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userid: 1,
+                transporterid:truckid,
+                grower_num:grower_num,
+                selling_pointid:1,
+                bales:bales,
+                created_at:date
+            })
+        };
+
+
+        fetch('http://localhost/king/api/create_transporter_grower.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data[0])
+                if (data[0].response==="success"){
+
+                    // const location=document.getElementById("location").clear
+                    // const vehicleid=document.getElementById("vehicleid").clear
+                    // const phone=document.getElementById("phone").clear
+                    // const driverid=document.getElementById("driverid").clear
+                    // const name=document.getElementById("name").clear
+                    // const sale_date=document.getElementById("sale_date").clear
+                    //truckid=data[0].id
+
+                }else {
+
+                }
+            });
+    }
 
   return (
     <div>
@@ -279,16 +322,16 @@ export const Deliverynotes = (props) => {
                             <form action="">
                             <div className='row'>
                                     <div class="col">
-                                        <label for="recipient-name" class="col-form-label">Insert Grower</label>
-                                        <input type="name" class="form-control" id="" />
+                                        <label for="recipient-name" class="col-form-label">Enter  Grower</label>
+                                        <input type="name" class="form-control" id="grower_num" />
                                     </div>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">Number Of Bales</label>
-                                        <input type="number" class="form-control" id="s" />
+                                        <input type="number" class="form-control" id="bales" />
                                     </div>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">.</label>
-                                        <button type="button" class="btn btn-primary"  id="">Submit</button>
+                                        <button type="button" class="btn btn-primary"  onClick={createTransporterGrowers} id="">Submit</button>
                                     </div>
                                 </div>
                             </form>
