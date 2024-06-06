@@ -5,6 +5,52 @@ import React from 'react'
 
 
 export const Deliverynotes = (props) => {
+
+    const createTransporter=()=>{
+        const location=document.getElementById("location").value
+        const vehicleid=document.getElementById("vehicleid").value
+        const phone=document.getElementById("phone").value
+        const driverid=document.getElementById("driverid").value
+        const name=document.getElementById("name").value
+        const sale_date=document.getElementById("sale_date").value
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userid: 1,
+                seasonid:1,
+                name:name,
+                id_num:driverid,
+                truck_num:vehicleid,
+                location:location,
+                phone:phone,
+                created_at:sale_date
+            })
+        };
+
+
+        fetch('http://localhost/king/api/create_transporter_dnote.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.response)
+                if (data.response[0].response==="success"){
+
+                    // const location=document.getElementById("location").clear
+                    // const vehicleid=document.getElementById("vehicleid").clear
+                    // const phone=document.getElementById("phone").clear
+                    // const driverid=document.getElementById("driverid").clear
+                    // const name=document.getElementById("name").clear
+                    // const sale_date=document.getElementById("sale_date").clear
+
+                }else {
+
+                }
+            });
+    }
+
+
+
+
   return (
     <div>
         <div>
@@ -191,27 +237,27 @@ export const Deliverynotes = (props) => {
                                 <div className='row'>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">Name</label>
-                                        <input type="name" class="form-control" id="sale_date" />
+                                        <input type="name" class="form-control" id="name" />
                                     </div>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">ID</label>
-                                        <input type="name" class="form-control" id="" />
+                                        <input type="name" class="form-control" id="driverid" />
                                     </div>
                                 </div>
                                 <div className='row'>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">Vehicle Reg</label>
-                                        <input type="name" class="form-control" id="" />
+                                        <input type="name" class="form-control" id="vehicleid" />
                                     </div>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">Contact</label>
-                                        <input type="phone" class="form-control" id="" />
+                                        <input type="phone" class="form-control" id="phone" />
                                     </div>
                                 </div>
                                 <div className='row'>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">Location</label>
-                                        <input type="name" class="form-control" id="sale_date" />
+                                        <input type="name" class="form-control" id="location" />
                                     </div>
                                     <div class="col">
                                         <label for="recipient-name" class="col-form-label">Date</label>
@@ -224,7 +270,7 @@ export const Deliverynotes = (props) => {
                             </div>
                             <br />
 
-                            <button className='btn btn-success'>Save</button>
+                            <button className='btn btn-success' onClick={createTransporter}>Save</button>
 
                             <br />
 
