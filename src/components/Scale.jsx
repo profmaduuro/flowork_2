@@ -1,4 +1,6 @@
 import React from 'react'
+//const SerialPort=require("serialport")
+//const ReadLine=require("@serialport/parser-readline")
 
 export const Scale = (props) => {
 
@@ -70,7 +72,7 @@ export const Scale = (props) => {
                 document.getElementById("response").innerText = " Capture Barcode"
             }
         }else {
-            document.getElementById("response").innerText = " Bale Underweight"
+            document.getElementById("response").innerText = mass+"kg => Bale Underweight "
         }
     }
 
