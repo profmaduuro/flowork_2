@@ -91,6 +91,7 @@ export const Deliverynotes = (props) => {
                     <a class="nav-link" id="icon-tab-1" data-bs-toggle="tab" href="#icon-tabpanel-1" role="tab" aria-controls="icon-tabpanel-1" aria-selected="false"><i class="fa-solid fa-suitcase"></i> Grower Delivery Notes</a>
                 </li>
                 <li class="nav-item" role="presentation">
+
                     <a class="nav-link" id="icon-tab-2" data-bs-toggle="tab" href="#icon-tabpanel-2" role="tab" aria-controls="icon-tabpanel-2" aria-selected="false"><i class="fa-solid fa-star"></i> </a>
                 </li>
             </ul>
