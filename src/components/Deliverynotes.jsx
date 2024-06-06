@@ -64,7 +64,7 @@ export const Deliverynotes = (props) => {
                                 <th>Status</th>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr className='' href="" data-bs-toggle="modal" data-bs-target="#example2">
                                     <td>TDN0001</td>
                                     <td>TMADUURO</td>
                                     <td>66-08435504</td>
@@ -75,7 +75,7 @@ export const Deliverynotes = (props) => {
                                     <td>15-05-2024</td>
                                     <td>Open</td>
                                 </tr>
-                                <tr>
+                                <tr className='' href="" data-bs-toggle="modal" data-bs-target="#example2">
                                     <td>TDN0001</td>
                                     <td>TMADUURO</td>
                                     <td>66-08435504</td>
@@ -86,7 +86,7 @@ export const Deliverynotes = (props) => {
                                     <td>15-05-2024</td>
                                     <td>Open</td>
                                 </tr>
-                                <tr>
+                                <tr className='' href="" data-bs-toggle="modal" data-bs-target="#example2">
                                     <td>TDN0001</td>
                                     <td>TMADUURO</td>
                                     <td>66-08435504</td>
@@ -228,10 +228,28 @@ export const Deliverynotes = (props) => {
 
                             <br />
 
+                            <div className='modal-body form group'>
+                            <form action="">
+                            <div className='row'>
+                                    <div class="col">
+                                        <label for="recipient-name" class="col-form-label">Insert Grower</label>
+                                        <input type="name" class="form-control" id="" />
+                                    </div>
+                                    <div class="col">
+                                        <label for="recipient-name" class="col-form-label">Number Of Bales</label>
+                                        <input type="number" class="form-control" id="s" />
+                                    </div>
+                                    <div class="col">
+                                        <label for="recipient-name" class="col-form-label">.</label>
+                                        <button type="button" class="btn btn-primary"  id="">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#example2"
-                                type="button">Insert Growers</a>
+                                <button class="btn btn-primary" type="button">Complete Delivery</button>
                             </div>
 
                         </div>
@@ -256,10 +274,9 @@ export const Deliverynotes = (props) => {
 
                         <div className='row'>
                             <div className='col'>
-                                <h6>TDN0001011</h6>
+                                <h6></h6>
                             </div>
-                            <div className='col'>
-                                 
+                            <div className='col'>                                
                                 <button type="button" class="btn btn-danger">TDN00021546</button>
                             </div> 
                             <div className='col'>
@@ -271,12 +288,12 @@ export const Deliverynotes = (props) => {
                             <form>
                             <div className='row'>
                             <div class="col">
-                                <label for="recipient-name" class="col-form-label">Grower</label>
-                                <input type="text" class="form-control" id="sale_date" />
+                                <label for="recipient-name" class="col-form-label">Search</label>
+                                <input type="search" class="form-control" id="sale_date"/>
                             </div>
                             <div class="col">
-                                <label for="recipient-name" class="col-form-label">Bales</label>
-                                <input type="number" class="form-control" id="sale_date" />
+                                <label for="recipient-name" class="col-form-label"></label>
+                                {/* <input type="number" class="form-control" id="sale_date" /> */}
                             </div>
 
                             {/* <div class="col">
@@ -287,7 +304,7 @@ export const Deliverynotes = (props) => {
                             </div>
                             <br />
 
-                            <button className='btn btn-success'>Save</button>
+                            {/* <button className='btn btn-success'>Save</button> */}
 
 
                             </form>
@@ -300,6 +317,7 @@ export const Deliverynotes = (props) => {
                                     <th>Name</th>
                                     <th>Location</th>
                                     <th>Date</th>
+                                    <th>Bales</th>
                                     <th>GDN Number</th>
                                     <th>Action</th>
                                 </thead>
@@ -309,6 +327,7 @@ export const Deliverynotes = (props) => {
                                         <td>Tinashe Mabhaudi</td>
                                         <td>A</td>
                                         <td>15-05-2024</td>
+                                        <td>10</td>
                                         <td>GDN0001</td>
                                         <td><a href="" className='bi bi-trash'> Delete</a></td>
                                     </tr>
@@ -317,6 +336,7 @@ export const Deliverynotes = (props) => {
                                         <td>Tinashe Mabhaudi</td>
                                         <td>A</td>
                                         <td>15-05-2024</td>
+                                        <td>10</td>
                                         <td>GDN0001</td>
                                         <td><a href="" className='bi bi-trash'> Delete</a></td>
                                     </tr>
@@ -325,6 +345,7 @@ export const Deliverynotes = (props) => {
                                         <td>Tinashe Mabhaudi</td>
                                         <td>A</td>
                                         <td>15-05-2024</td>
+                                        <td>10</td>
                                         <td>GDN0001</td>
                                         <td><a href="" className='bi bi-trash'> Delete</a></td>
                                     </tr>
@@ -333,6 +354,7 @@ export const Deliverynotes = (props) => {
                                         <td>Tinashe Mabhaudi</td>
                                         <td>A</td>
                                         <td>15-05-2024</td>
+                                        <td>10</td>
                                         <td>GDN0001</td>
                                         <td><a href="" className='bi bi-trash'> Delete</a></td>
                                     </tr>
@@ -345,7 +367,7 @@ export const Deliverynotes = (props) => {
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button class="btn btn-primary" type="button">Complete Delivery</button>
+                            {/* <button class="btn btn-primary" type="button">Complete Delivery</button> */}
                         </div>
                         </div>
                     </div>

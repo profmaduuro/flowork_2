@@ -1,5 +1,6 @@
 import React from 'react';
-import profileImg from '../images/user.jpg';
+// import profileImg from '../images/user.jpg';
+import { Link } from 'react-router-dom';
 
 function NavAvatar() {
   return (
@@ -50,10 +51,11 @@ function NavAvatar() {
               <hr className='dropdown-divider' />  
             </li>
             <li>
-                <a href="#" className='dropdown-item d-flex align-items-center'>
+                <Link to="/Login" className='dropdown-item d-flex align-items-center'>
                     <i className='bi bi-box-arrow-right'></i>
                     <span>Sign Out</span>
-                </a>
+                  
+                </Link>
             </li>
 
 
