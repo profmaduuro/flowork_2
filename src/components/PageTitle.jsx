@@ -14,16 +14,16 @@ function PageTitle() {
           
 
     <div className='pagetitle'>
-      <h1>Dashboard</h1>
+      <h1 className='heading navbar-expand-lg navbar-light bg-light card_10'>Dashboard</h1>
       <nav>
         <ol className='breadcrumb'>
           <li className='breadcrumb-item'>
-            <a href="/home">
+            {/* <a href="/home">
               <i className='bi bi-house-door'></i>
-            </a>
+            </a> */}
 
           </li>
-          <li className='breadcrumb-item active'>Dashboard</li>
+          {/* <li className='breadcrumb-item active'>Dashboard</li> */}
           
 
         </ol>
@@ -75,8 +75,8 @@ function PageTitle() {
       
 
       </div> */}
-
-    <div class="container">
+<br />
+    <div class="">
       <div class="row">
         <div class="col-md-3">
           <div class="card card-1">
@@ -162,6 +162,7 @@ function PageTitle() {
 
         <b>Deliveries</b>
     
+        <div className='table table-responsive'>
 
         <table className="table table-striped table-hover">
             <thead>
@@ -330,6 +331,9 @@ function PageTitle() {
 
             </tbody>
         </table>
+
+        </div>
+        
 
   
         

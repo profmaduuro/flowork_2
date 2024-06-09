@@ -94,6 +94,12 @@ const SideBar=(props)=> {
 
             <ul id='receiving-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
+                <li onClick={props.scaleclick}>
+                    <Link to="/Scale">
+                        <i className='bi bi-circle'></i>
+                <span>Scale</span>
+                </Link>
+                </li>
                 <li onClick={props.deliveriesclick}>
                     <Link to="/Deliverynotes">
                         <i className='bi bi-circle'></i>
@@ -426,12 +432,62 @@ const SideBar=(props)=> {
             </ul>
         </li>
 
-        <li className='nav-heading'>Pages
-        </li>
-        {navList.map(nav => (
-            <NavItem key={nav._id} nav={nav}/>
+        <li className='nav-item'>
+            <a href="#"
+            className='nav-link collapsed'
+            data-bs-target=''
+            data-bs-toggle=''>
+                <i className='bi bi-gear'></i>
+                <span>GMS</span>
+                <i className=''></i>
 
-        ))}
+            </a>
+        </li>
+
+        <li className='nav-item'>
+            <a href="#"
+            className='nav-link collapsed'
+            data-bs-target=''
+            data-bs-toggle=''>
+                <i className='bi bi-gear'></i>
+                <span>QuickAcc</span>
+                <i className=''></i>
+
+            </a>
+        </li>
+
+        <li className='nav-item'>
+            <a href="#"
+            className='nav-link collapsed'
+            data-bs-target=''
+            data-bs-toggle=''>
+                <i className='bi bi-gear'></i>
+                <span>LMS</span>
+                <i className=''></i>
+
+            </a>
+        </li>
+
+        <br />
+        <br />
+        <br />
+
+        <li className='nav-item' onClick={props.loginclick}>
+            <Link to = "/Login"
+            className='nav-link collapsed'
+            data-bs-target=''
+            data-bs-toggle='collapse'>
+                <i className='bi bi-gear'></i>
+                <span>Log Out</span>
+                <i className=''></i>
+
+            </Link>
+        </li>
+        {/* {navList.map(nav => (
+            
+            <NavItem key={nav._id} nav={nav} />
+
+        ))} */}
     
      </ul>
     </aside>

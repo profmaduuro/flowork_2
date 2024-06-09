@@ -6,11 +6,12 @@ export const Ticketbatching = (props) => {
         <div>
             <a href="/home">
                 <i className='bi bi-house-door'></i>
-                
-            </a>
-            <h5>  Tickets Batching</h5>
+                </a>
+            
+            <h5 className='navbar-expand-lg navbar-light bg-light card_10'>  Tickets Batching</h5>
         </div>
 
+        <br />
         <br />
 
         <div className='card_10'>
