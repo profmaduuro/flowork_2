@@ -178,7 +178,7 @@ const SideBar=(props)=> {
 
             <ul id='sales-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
-                <li>
+                <li onClick={props.capturebalepriceclick}>
                     <a href="#">
                         <i className='bi bi-circle'></i>
                 <span>Capturing</span>
