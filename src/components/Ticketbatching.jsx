@@ -1,7 +1,229 @@
 import React from 'react'
 
 export const Ticketbatching = (props) => {
-  return (
+    let id=0;
+
+
+    const split=()=>{
+
+        id=document.getElementById("id").value
+
+
+        const start_lot = document.getElementById("start_lot").value
+        const end_lot = document.getElementById("end_lot").value
+        const splitid = document.getElementById("splitid").value
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: id,
+                start_lot:start_lot,
+                end_lot: end_lot,
+                splitid:splitid,
+                userid: 1,
+                created_at:"06-08-2024"
+            })
+        };
+
+
+        fetch('http://localhost/king/api/create_split_sale.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data[0].response,"Success")
+                getCurrentSplits()
+            });
+
+
+    }
+
+
+    const getBales=(event)=>{
+         id = event.target.id;
+
+        console.log(id,"hello id")
+
+        var x = document.getElementById("tbody");
+        document.getElementById("id").value = id;
+
+
+        var tr =null;
+
+        var grower_num=null;
+        var barcode=null;
+        var group=null;
+        var lot=null;
+        var mass=null;
+        var temp_barcode=null;
+        var splitid=null;
+
+        while (x.hasChildNodes()) {
+            x.removeChild(x.firstChild);
+        }
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: id,
+                userid: id
+            })
+        };
+
+
+        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data,"my new data")
+                data.map((u,i)=>{
+                    console.log(i,"my new data")
+                    tr = document.createElement("tr");
+
+                    grower_num = document.createElement("td");
+                    barcode = document.createElement("td");
+                    group = document.createElement("td");
+                    lot = document.createElement("td");
+                    mass = document.createElement("td");
+                    temp_barcode = document.createElement("td");
+                    splitid= document.createElement("td");
+
+
+                    var growerData = document.createTextNode(data[i].grower_num);
+                    var barcodeData = document.createTextNode(data[i].barcode);
+                    var groupData = document.createTextNode(data[i].bale_group);
+                    var lotData = document.createTextNode(data[i].lot);
+                    var massData = document.createTextNode(data[i].mass);
+                    var temp_barcodeData = document.createTextNode(data[i].temp_barcode);
+                    var splitData = document.createTextNode(data[i].splitid);
+
+
+                    grower_num.appendChild(growerData)
+                    barcode.appendChild(barcodeData)
+                    group .appendChild(groupData)
+                    lot .appendChild(lotData)
+                    mass .appendChild(massData)
+                    temp_barcode.appendChild(temp_barcodeData)
+                    splitid.appendChild(splitData)
+
+
+                    tr.appendChild(grower_num)
+                    tr.appendChild(barcode)
+                    tr.appendChild(group)
+                    tr.appendChild(lot)
+                    tr.appendChild(mass)
+                    tr.appendChild(temp_barcode)
+                    tr.appendChild(splitid)
+
+                    x.appendChild(tr)
+
+                })
+
+
+
+            });
+
+
+
+
+    }
+
+
+
+
+    const getCurrentSplits=()=>{
+
+        id=document.getElementById("id").value
+
+        console.log(id,"hello id")
+
+        var x = document.getElementById("tbody");
+        document.getElementById("id").value = id;
+
+
+        var tr =null;
+
+        var grower_num=null;
+        var barcode=null;
+        var group=null;
+        var lot=null;
+        var mass=null;
+        var temp_barcode=null;
+        var splitid=null;
+
+        while (x.hasChildNodes()) {
+            x.removeChild(x.firstChild);
+        }
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: id,
+                userid: id
+            })
+        };
+
+
+        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data,"my new data")
+                data.map((u,i)=>{
+                    console.log(i,"my new data")
+                    tr = document.createElement("tr");
+
+                    grower_num = document.createElement("td");
+                    barcode = document.createElement("td");
+                    group = document.createElement("td");
+                    lot = document.createElement("td");
+                    mass = document.createElement("td");
+                    temp_barcode = document.createElement("td");
+                    splitid= document.createElement("td");
+
+
+                    var growerData = document.createTextNode(data[i].grower_num);
+                    var barcodeData = document.createTextNode(data[i].barcode);
+                    var groupData = document.createTextNode(data[i].bale_group);
+                    var lotData = document.createTextNode(data[i].lot);
+                    var massData = document.createTextNode(data[i].mass);
+                    var temp_barcodeData = document.createTextNode(data[i].temp_barcode);
+                    var splitData = document.createTextNode(data[i].splitid);
+
+
+                    grower_num.appendChild(growerData)
+                    barcode.appendChild(barcodeData)
+                    group .appendChild(groupData)
+                    lot .appendChild(lotData)
+                    mass .appendChild(massData)
+                    temp_barcode.appendChild(temp_barcodeData)
+                    splitid.appendChild(splitData)
+
+
+                    tr.appendChild(grower_num)
+                    tr.appendChild(barcode)
+                    tr.appendChild(group)
+                    tr.appendChild(lot)
+                    tr.appendChild(mass)
+                    tr.appendChild(temp_barcode)
+                    tr.appendChild(splitid)
+
+                    x.appendChild(tr)
+
+                })
+
+
+
+            });
+
+
+
+
+    }
+
+
+    return (
     <div>
         <div>
             <a href="/home">
@@ -44,33 +266,27 @@ export const Ticketbatching = (props) => {
                                 <th>Status</th>
                             </thead>
                             <tbody>
-                                <tr href="" data-bs-toggle="modal" data-bs-target="#example">
-                                    <td>V154206</td>
-                                    <td>TMADUURO</td>
-                                    <td>10</td>
-                                    <td>Vision Leaf</td>
-                                    <td>15-05-2024</td>
-                                    <td>2024</td>
-                                    <td>Open</td>
-                                </tr>
-                                <tr href="" data-bs-toggle="modal" data-bs-target="#example">
-                                <td>V154206</td>
-                                    <td>TMADUURO</td>
-                                    <td>10</td>
-                                    <td>Vision Leaf</td>
-                                    <td>15-05-2024</td>
-                                    <td>2024</td>
-                                    <td>Open</td>                                  
-                                </tr>
-                                <tr href="" data-bs-toggle="modal" data-bs-target="#example">
-                                <td>V154206</td>
-                                    <td>TMADUURO</td>
-                                    <td>10</td>
-                                    <td>Vision Leaf</td>
-                                    <td>15-05-2024</td>
-                                    <td>2024</td>
-                                    <td>Open</td>
-                                </tr>
+
+                            {
+                                props.ticketsBatchingData.map((u,i)=>{
+                                    return(
+
+                                        <tr  data-bs-toggle="modal" data-bs-target="#example"  >
+                                            <td>{props.ticketsBatchingData[i].grower_num}</td>
+                                            <td>{props.ticketsBatchingData[i].name}</td>
+                                            <td>{props.ticketsBatchingData[i].bales}</td>
+                                            <td>{props.ticketsBatchingData[i].selling_point}</td>
+                                            <td>{props.ticketsBatchingData[i].created_at}</td>
+                                            <td>2024</td>
+                                            <td><a href="" data-bs-toggle="modal" data-bs-target="#example" id={props.ticketsBatchingData[i].transporter_growersid} value={props.ticketsBatchingData[i].transporter_growersid} onClick={getBales}>Split</a></td>
+
+
+                                        </tr>
+                                    )
+                                })
+                            }
+
+
                             </tbody>
                         </table>
 
@@ -165,20 +381,23 @@ export const Ticketbatching = (props) => {
                 <div class="row">
                     <div className='col-2'>
                         <label htmlFor="">Select Sale</label>
-                        <input type="number" className='form-control' max={15} />
+                        <input type="number" className='form-control' id="splitid" />
                         
                     </div>
                     <div className='col-2'>
                         <label htmlFor="">First Lot</label>
-                        <input type="number" className='form-control' />
+                        <input type="number" className='form-control' id="start_lot" />
                     </div>
                     <div className='col-2'>
                         <label htmlFor="">End Lot</label>
-                        <input type="number" className='form-control' />
+                        <input type="number" className='form-control' id="end_lot"/>
                     </div>
                     <div className='col-4'>
                         <label htmlFor=""></label>
-                        <button type="button" className='btn btn-primary'>Submit</button>
+                        <button type="button" className='btn btn-primary' onClick={split}>Submit</button>
+                    </div>
+                    <div className='col-4'>
+                        <label id="id"></label>
                     </div>
 
                 </div>
@@ -197,70 +416,8 @@ export const Ticketbatching = (props) => {
                             <th>Temp#</th>
                             <th>Sale</th>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>V125463</td>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                            <td>V125463</td>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                            <td>V125463</td>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                            <td>V125463</td>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                            <td>V125463</td>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                            <td>V125463</td>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                            <td>V125463</td>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                                <td>0</td>
-                            </tr>
+                        <tbody id="tbody">
+
                         </tbody>
                     </table>
                     </div>
