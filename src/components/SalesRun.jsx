@@ -2,6 +2,36 @@ import React from 'react'
 
 
 const SalesRun = (props) => {
+
+    const createStartOfDay=()=>{
+
+
+        const date=document.getElementById("sale_date").value
+        const exchange_rate=document.getElementById("exchange_rate").value
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                description:date,
+                amount:exchange_rate,
+                userid: 1,
+                created_at:"06-08-2024"
+            })
+        };
+
+
+        fetch('http://localhost/king/api/create_start_of_day.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data[0].response,"Success")
+
+            });
+
+    }
+
+
   return (
     <div>
       <a href="/home">
@@ -33,87 +63,26 @@ const SalesRun = (props) => {
         <table className='table table-striped table-hover'>
             <thead>
                 <tr>
-                <th>Date</th>
-                <th>Selling Point</th>
-                <th>Bales Booked</th>
-                <th>Laid</th>
-                <th>Sold</th>
-                <th>Rejected</th>
-                <th>Unprocessed</th>
-                <th>Rate</th>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Rate</th>
+                    <th>Active</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>15/05/2024</td>
-                    <td>VLT</td>
-                    <td>150</td>
-                    <td>145</td>
-                    <td>140</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>13.7585</td>
-                </tr>
-                <tr>
-                    <td>15/05/2024</td>
-                    <td>VLT</td>
-                    <td>150</td>
-                    <td>145</td>
-                    <td>140</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>13.7585</td>
-                </tr>
-                <tr>
-                    <td>15/05/2024</td>
-                    <td>VLT</td>
-                    <td>150</td>
-                    <td>145</td>
-                    <td>140</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>13.7585</td>
-                </tr>
-                <tr>
-                    <td>15/05/2024</td>
-                    <td>VLT</td>
-                    <td>150</td>
-                    <td>145</td>
-                    <td>140</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>13.7585</td>
-                </tr>
-                <tr>
-                    <td>15/05/2024</td>
-                    <td>VLT</td>
-                    <td>150</td>
-                    <td>145</td>
-                    <td>140</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>13.7585</td>
-                </tr>
-                <tr>
-                    <td>15/05/2024</td>
-                    <td>VLT</td>
-                    <td>150</td>
-                    <td>145</td>
-                    <td>140</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>13.7585</td>
-                </tr>
-                <tr>
-                    <td>15/05/2024</td>
-                    <td>VLT</td>
-                    <td>150</td>
-                    <td>145</td>
-                    <td>140</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>13.7585</td>
-                </tr>
+
+            {
+                props.startOfDayData.map((u,i)=>{
+                    return(
+                        <tr>
+                            <td>{props.startOfDayData[i].id}</td>
+                            <td>{props.startOfDayData[i].description}</td>
+                            <td>{props.startOfDayData[i].amount}</td>
+                            <td>{props.startOfDayData[i].active}</td>
+                        </tr>
+                    )
+                })
+            }
             </tbody>
 
         </table>
@@ -145,7 +114,7 @@ const SalesRun = (props) => {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary" onClick={createStartOfDay}>Submit</button>
                 </div>
                 </div>
             </div>

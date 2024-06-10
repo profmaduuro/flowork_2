@@ -44,7 +44,12 @@ class App extends Component {
       "route":"",
       "ticketsData":[],
       "growerDeliveryData":[],
-      "ticketsBatchingData":[]
+      "ticketsBatchingData":[],
+      "sellingPointsData":[],
+      "buyersData":[],
+      "startOfDayData":[],
+      "deliveryNoteData":[],
+      "growerDeliveryNoteData":[]
 
     }
   }
@@ -69,7 +74,21 @@ class App extends Component {
   }
   salesrunclick=()=>{
 
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://localhost/king/api/get_start_of_days.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"startOfDayData":data})
+        });
     this.setState({"route":"SalesRun"})
   }
   growerregclick=()=>{
@@ -96,7 +115,29 @@ class App extends Component {
 
   buyerclick=()=>{
 
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://localhost/king/api/get_selling_points.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"sellingPointsData":data})
+        });
+
+    fetch('http://localhost/king/api/get_buyers.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"buyersData":data})
+        });
+
     this.setState({"route":"Buyer"})
   }
 
@@ -108,7 +149,22 @@ class App extends Component {
 
   gradesclick=()=>{
 
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+
+    fetch('http://localhost/king/api/get_buyers.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"buyersData":data})
+        });
     this.setState({"route":"Grades"})
   }
 
@@ -126,7 +182,29 @@ class App extends Component {
 
   deliveriesclick=()=>{
 
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://localhost/king/api/get_transporter_dnotes.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"deliveryNoteData":data})
+        });
+
+    fetch('http://localhost/king/api/get_grower_dnotes.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"growerDeliveryNoteData":data})
+        });
+
     this.setState({"route":"Deliverynotes"})
   }
 
@@ -281,7 +359,7 @@ class App extends Component {
       ticketsclick={this.ticketsclick} batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
       dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick} />
         <Main >
-          <SalesRun />
+          <SalesRun startOfDayData={this.state.startOfDayData}/>
         </Main>
         
         </>
@@ -378,7 +456,7 @@ class App extends Component {
       batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
       loginclick={this.loginclick} scaleclick={this.scaleclick} />
          <Main>
-          <Buyer />
+          <Buyer sellingPointsData={this.state.sellingPointsData} buyersData={this.state.buyersData}/>
         </Main>
         </>
       );
@@ -414,7 +492,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} loginclick={this.loginclick}
          scaleclick={this.scaleclick} />
          <Main>
-          <Grades />
+          <Grades buyersData={this.state.buyersData}/>
          </Main>
         
         </>
@@ -471,7 +549,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} />
          <Main>
-          <Deliverynotes />
+          <Deliverynotes deliveryNoteData={this.state.deliveryNoteData} growerDeliveryNoteData={this.state.growerDeliveryNoteData}/>
          </Main>
 
         

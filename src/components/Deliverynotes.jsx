@@ -156,39 +156,28 @@ export const Deliverynotes = (props) => {
                                 <th>Status</th>
                             </thead>
                             <tbody>
-                                <tr className='' href="" data-bs-toggle="modal" data-bs-target="#example2">
-                                    <td>TDN0001</td>
-                                    <td>TMADUURO</td>
-                                    <td>66-08435504</td>
-                                    <td>AED4586</td>
-                                    <td>5</td>
-                                    <td>50</td>
-                                    <td>2024</td>
-                                    <td>15-05-2024</td>
-                                    <td>Open</td>
-                                </tr>
-                                <tr className='' href="" data-bs-toggle="modal" data-bs-target="#example2">
-                                    <td>TDN0001</td>
-                                    <td>TMADUURO</td>
-                                    <td>66-08435504</td>
-                                    <td>AED4586</td>
-                                    <td>5</td>
-                                    <td>50</td>
-                                    <td>2024</td>
-                                    <td>15-05-2024</td>
-                                    <td>Open</td>
-                                </tr>
-                                <tr className='' href="" data-bs-toggle="modal" data-bs-target="#example2">
-                                    <td>TDN0001</td>
-                                    <td>TMADUURO</td>
-                                    <td>66-08435504</td>
-                                    <td>AED4586</td>
-                                    <td>5</td>
-                                    <td>50</td>
-                                    <td>2024</td>
-                                    <td>15-05-2024</td>
-                                    <td>Open</td>
-                                </tr>
+
+                            {
+                                props.deliveryNoteData.map((u,i)=>{
+
+                                    return(
+                                            <tr className='' href="" data-bs-toggle="modal" data-bs-target="#example2">
+                                                <td>{props.deliveryNoteData[i].id}</td>
+                                                <td>{props.deliveryNoteData[i].name}</td>
+                                                <td>{props.deliveryNoteData[i].id_num}</td>
+                                                <td>{props.deliveryNoteData[i].truck_num}</td>
+                                                <td>{props.deliveryNoteData[i].growers}</td>
+                                                <td>{props.deliveryNoteData[i].bales}</td>
+                                                <td>2024</td>
+                                                <td>{props.deliveryNoteData[i].created_at}</td>
+                                                <td>Open</td>
+                                            </tr>
+                                        )
+
+                                })
+                            }
+
+
                             </tbody>
                         </table>
 
@@ -203,59 +192,32 @@ export const Deliverynotes = (props) => {
                                 <th>GDN #</th>
                                 <th>Grower</th>
                                 <th>Name</th>
-                                <th>Sale Date</th>
                                 <th>Selling Point</th>
                                 <th>Floor</th>
-                                <th>Season</th>
-                                <th>Row</th>
                                 <th>Bales Delivered</th>
                                 <th>Bales Received</th>
                                 <th>Date Created</th>
                                 <th>Status</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>GDN0001</td>
-                                    <td>V124536</td>
-                                    <td>Tinashe Kaponda</td>
-                                    <td>15-05-2024</td>
-                                    <td>Vision Leaf Tobacco</td>
-                                    <td>A</td>
-                                    <td>2024</td>
-                                    <td>15</td>
-                                    <td>30</td>
-                                    <td>30</td>
-                                    <td>15-05-2024</td>
-                                    <td>Closed</td>
-                                </tr>
-                                <tr>
-                                    <td>GDN0001</td>
-                                    <td>V124536</td>
-                                    <td>Tinashe Kaponda</td>
-                                    <td>15-05-2024</td>
-                                    <td>Vision Leaf Tobacco</td>
-                                    <td>A</td>
-                                    <td>2024</td>
-                                    <td>15</td>
-                                    <td>30</td>
-                                    <td>30</td>
-                                    <td>15-05-2024</td>
-                                    <td>Closed</td>
-                                </tr>
-                                <tr>
-                                    <td>GDN0001</td>
-                                    <td>V124536</td>
-                                    <td>Tinashe Kaponda</td>
-                                    <td>15-05-2024</td>
-                                    <td>Vision Leaf Tobacco</td>
-                                    <td>A</td>
-                                    <td>2024</td>
-                                    <td>15</td>
-                                    <td>30</td>
-                                    <td>30</td>
-                                    <td>15-05-2024</td>
-                                    <td>Closed</td>
-                                </tr>
+                            {
+                                props.growerDeliveryNoteData.map((u,i)=>{
+                                    return(
+                                        <tr>
+                                            <td>{props.growerDeliveryNoteData[i].id}</td>
+                                            <td>{props.growerDeliveryNoteData[i].grower_num}</td>
+                                            <td>{props.growerDeliveryNoteData[i].name +" "+props.growerDeliveryNoteData[i].surname}</td>
+                                            <td>{props.growerDeliveryNoteData[i].selling_point_name}</td>
+                                            <td>{props.growerDeliveryNoteData[i].location}</td>
+                                            <td>{props.growerDeliveryNoteData[i].bales}</td>
+                                            <td>{props.growerDeliveryNoteData[i].junused_bales}</td>
+                                            <td>{props.growerDeliveryNoteData[i].created_at}</td>
+                                            <td>Closed</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+
                             </tbody>
                         </table>
 
