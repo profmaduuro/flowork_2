@@ -1,6 +1,194 @@
 import React from 'react'
 
 export const Tickets = (props) => {
+    let id=0;
+    const setBaleBarcodes=()=>{
+
+        id=document.getElementById("id").value
+        console.log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiii",id)
+
+        const start_barcode = document.getElementById("start_barcode").value
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: id,
+                start_barcode:start_barcode,
+                userid: 1,
+                created_at:"06-08-2024"
+            })
+        };
+
+
+        fetch('http://localhost/king/api/tickets.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                getProcessedBarcodes()
+            });
+
+    }
+
+    const getBales=(event)=>{
+         id = event.target.id;
+        document.getElementById("id").value=id
+
+        console.log(id)
+
+        var x = document.getElementById("tbody");
+
+
+        var tr =null;
+
+        var barcode=null;
+        var group=null;
+        var lot=null;
+        var mass=null;
+        var temp_barcode=null;
+
+        while (x.hasChildNodes()) {
+            x.removeChild(x.firstChild);
+        }
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: id,
+                userid: id
+            })
+        };
+
+
+        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data,"my new data")
+                data.map((u,i)=>{
+                    console.log(i,"my new data")
+                     tr = document.createElement("tr");
+
+                     barcode = document.createElement("td");
+                     group = document.createElement("td");
+                     lot = document.createElement("td");
+                     mass = document.createElement("td");
+                     temp_barcode = document.createElement("td");
+
+
+
+                    var barcodeData = document.createTextNode(data[i].barcode);
+                    var groupData = document.createTextNode(data[i].bale_group);
+                    var lotData = document.createTextNode(data[i].lot);
+                    var massData = document.createTextNode(data[i].mass);
+                    var temp_barcodeData = document.createTextNode(data[i].temp_barcode);
+
+                    barcode.appendChild(barcodeData)
+                    group .appendChild(groupData)
+                    lot .appendChild(lotData)
+                    mass .appendChild(massData)
+                    temp_barcode.appendChild(temp_barcodeData)
+
+                    tr.appendChild(barcode)
+                    tr.appendChild(group)
+                    tr.appendChild(lot)
+                    tr.appendChild(mass)
+                    tr.appendChild(temp_barcode)
+
+                    x.appendChild(tr)
+
+                })
+
+
+
+            });
+
+
+
+
+    }
+
+
+    const getProcessedBarcodes=()=>{
+        id=document.getElementById("id").value
+
+        console.log(id)
+
+        var x = document.getElementById("tbody");
+
+
+        var tr =null;
+
+        var barcode=null;
+        var group=null;
+        var lot=null;
+        var mass=null;
+        var temp_barcode=null;
+
+        while (x.hasChildNodes()) {
+            x.removeChild(x.firstChild);
+        }
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: id,
+                userid: id
+            })
+        };
+
+
+        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data,"my new data")
+                data.map((u,i)=>{
+                    console.log(i,"my new data")
+                    tr = document.createElement("tr");
+
+                    barcode = document.createElement("td");
+                    group = document.createElement("td");
+                    lot = document.createElement("td");
+                    mass = document.createElement("td");
+                    temp_barcode = document.createElement("td");
+
+
+
+                    var barcodeData = document.createTextNode(data[i].barcode);
+                    var groupData = document.createTextNode(data[i].bale_group);
+                    var lotData = document.createTextNode(data[i].lot);
+                    var massData = document.createTextNode(data[i].mass);
+                    var temp_barcodeData = document.createTextNode(data[i].temp_barcode);
+
+                    barcode.appendChild(barcodeData)
+                    group .appendChild(groupData)
+                    lot .appendChild(lotData)
+                    mass .appendChild(massData)
+                    temp_barcode.appendChild(temp_barcodeData)
+
+                    tr.appendChild(barcode)
+                    tr.appendChild(group)
+                    tr.appendChild(lot)
+                    tr.appendChild(mass)
+                    tr.appendChild(temp_barcode)
+
+                    x.appendChild(tr)
+
+                })
+
+
+
+            });
+
+
+
+
+    }
+
+
   return (
     <div>
         <div>
@@ -21,55 +209,29 @@ export const Tickets = (props) => {
             <div className='table-responsive'>
                 <table className='table table-striped'>
                     <thead>
-                        <th>Grower</th>
-                        <th>Name</th>
-                        <th>Selling Point</th>
-                        <th>Bales</th>
-                        <th>Date</th>
-                        <th>Action</th>
+                    <th>Grower</th>
+                    <th>Name</th>
+                    <th>Selling Point</th>
+                    <th>Bales</th>
+                    <th>Date</th>
+                    <th>Action</th>
                     </thead>
                     <br />
                     <tbody>
-                        <tr>
-                            <td>V123456</td>
-                            <td>Bright Kaponda</td>
-                            <td>Vision Leaf</td>
-                            <td>45</td>
-                            <td>15-05-2024</td>
-                            <td><a href="" data-bs-toggle="modal" data-bs-target="#example">Proceed</a></td>
-                        </tr>
-                        <tr>
-                            <td>V123456</td>
-                            <td>Bright Kaponda</td>
-                            <td>Vision Leaf</td>
-                            <td>45</td>
-                            <td>15-05-2024</td>
-                            <td><a href="" data-bs-toggle="modal" data-bs-target="#example">Proceed</a></td>
-                        </tr>
-                        <tr>
-                            <td>V123456</td>
-                            <td>Bright Kaponda</td>
-                            <td>Vision Leaf</td>
-                            <td>45</td>
-                            <td>15-05-2024</td>
-                            <td><a href="" data-bs-toggle="modal" data-bs-target="#example">Proceed</a></td>
-                        </tr>
-                        <tr>
-                            <td>V123456</td>
-                            <td>Bright Kaponda</td>
-                            <td>Vision Leaf</td>
-                            <td>45</td>
-                            <td>15-05-2024</td>
-                            <td><a href=""  data-bs-toggle="modal" data-bs-target="#example">Proceed</a></td>
-                        </tr>
-                        <tr>
-                            <td>V123456</td>
-                            <td>Bright Kaponda</td>
-                            <td>Vision Leaf</td>
-                            <td>45</td>
-                            <td>15-05-2024</td>
-                            <td><a href="" data-bs-toggle="modal" data-bs-target="#example">Proceed</a></td>
-                        </tr>
+                    {
+                        props.ticketsData.map((u,i)=>{
+                           return(
+                               <tr>
+                                   <td>{props.ticketsData[i].grower_num}</td>
+                                   <td>{props.ticketsData[i].name}</td>
+                                   <td>{props.ticketsData[i].selling_point}</td>
+                                   <td>{props.ticketsData[i].bales}</td>
+                                   <td>{props.ticketsData[i].created_at}</td>
+                                   <td><a href="" data-bs-toggle="modal" data-bs-target="#example" id={props.ticketsData[i].transporter_growersid} value={props.ticketsData[i].transporter_growersid} onClick={getBales}>Proceed</a></td>
+                               </tr>
+                           )
+                        })
+                    }
 
                     </tbody>
                 </table>
@@ -91,12 +253,16 @@ export const Tickets = (props) => {
                 <div class="row">
                     <div className='col-4'>
                         <label htmlFor="">Set Start Barcode</label>
-                        <input type="barcode" className='form-control'  />
+                        <input type="barcode" className='form-control'  id="start_barcode"/>
                         
                     </div>
                     <div className='col-4'>
                         <label htmlFor=""></label>
-                        <button type="barcode" className='btn btn-primary'>Submit</button>
+                        <button type="barcode" className='btn btn-primary' onClick={setBaleBarcodes}>Submit</button>
+                    </div>
+
+                    <div className='col-4'>
+                        <label htmlFor="" id="id"></label>
                     </div>
 
                 </div>
@@ -112,56 +278,8 @@ export const Tickets = (props) => {
                             <th>Mass</th>
                             <th>Temp#</th>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                            </tr>
-                            <tr>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                            </tr>
-                            <tr>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                            </tr>
-                            <tr>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                            </tr>
-                            <tr>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                            </tr>
-                            <tr>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                            </tr>
-                            <tr>
-                                <td>6500025897q</td>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>120</td>
-                                <td>VL0012456</td>
-                            </tr>
+                        <tbody id="tbody">
+
                         </tbody>
                     </table>
                 </div>

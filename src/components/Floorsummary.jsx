@@ -1,7 +1,37 @@
 import React from 'react'
 
 export const Floorsummary = (props) => {
-  return (
+
+    const floorSummary=()=>{
+
+        const barcode=document.getElementById("barcode").value
+        const row=document.getElementById("row").value
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                barcode:barcode,
+                row:row,
+                userid: 1,
+                created_at:"06-08-2024"
+            })
+        };
+
+
+        fetch('http://localhost/king/api/create_floor_summary.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data[0].response,"Success")
+
+            });
+
+
+    }
+
+
+    return (
     <div>
         <div className=''>
              <a href="/home">
@@ -163,9 +193,10 @@ export const Floorsummary = (props) => {
                         </select>
                         
                         <label for="recipient-name" class="col-form-label">Scan Barcode</label>
-                        <input type="barcode" class="form-control" id="" />
+                        <input type="barcode" class="form-control" id="barcode" onChange={floorSummary}/>
                         <label for="recipient-name" class="col-form-label">Row</label>
-                        <input type="number" class="form-control" id="" />
+                        <input type="number" class="form-control" id="row" />
+
                     </div>
 
                     </form>
