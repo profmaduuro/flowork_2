@@ -2,7 +2,78 @@ import React from 'react'
 import "./buyer.css";
 
 const Buyer = (props) => {
-  return (
+
+
+    const createBuyer=()=>{
+
+        const name=document.getElementById("name").value
+        const buyer_code=document.getElementById("buyer_code").value
+        const selling_points=document.getElementById("selling_points").value
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name:name,
+                buyer_code:buyer_code,
+                userid: 1,
+                selling_pointid:selling_points,
+                created_at:"06-08-2024"
+            })
+        };
+
+
+        fetch('http://localhost/king/api/create_buyer.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data[0].response,"Success")
+
+            });
+
+    }
+    const getSellingPoints=(event)=>{
+        // id = event.target.id;
+        // document.getElementById("id").value=id
+        //
+        // console.log(id)
+
+        var x = document.getElementById("selling_points");
+
+
+        var name =null;
+
+
+
+        while (x.hasChildNodes()) {
+            x.removeChild(x.firstChild);
+        }
+
+        console.log(props.sellingPointsData,"kkkkkkk")
+
+        props.sellingPointsData.map((u,i)=>{
+            console.log(i,"my new data")
+            name = document.createElement("option");
+            name.value=props.sellingPointsData[i].id
+
+
+            var opt = document.createTextNode(props.sellingPointsData[i].name);
+
+            name.appendChild(opt)
+
+            x.appendChild(name)
+
+
+        })
+
+
+
+    }
+
+
+    //getSellingPoints()
+    console.log(props.buyersData,"oo");
+    return (
     <div>
 
         <a href="/">
@@ -14,26 +85,27 @@ const Buyer = (props) => {
 
            <form action="" className=''>
              <label htmlFor="">Buyer Name</label>
-             <input type="text" className='form-control' />
+             <input type="text" className='form-control' id="name"/>
              <br/>
              <label htmlFor="">Buyer Code</label>
-             <input type="text" className='form-control' />
+             <input type="text" className='form-control' id="buyer_code"/>
              <br/>
              <label htmlFor="">Selling Point</label>
-             <select type="text" className='form-select'>
-                <option value="">Select Selling Point</option>
-                <option value="VLT">Vision Leaf Tobacco</option>
-                <option value="HLT">Horizon Leaf Tobacco</option>
-                <option value="VTT">Victory Tobacco</option>
+             <select type="text" className='form-select' id="selling_points">
+                 {
+                     props.sellingPointsData.map((u,i)=>{
+                     return(
+                         <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name} </option>
+                     )
+                     })
+                 }
+
              </select>
-             <br/>
-             <label htmlFor="">Upload Grades</label>
-             <input type="file" className='form-control' />
              <br />
-             <button type="submit" name="" id="" className='btn btn-primary'>Submit</button>
+
 
            </form>
-
+            <button type="submit" name="" id="" className='btn btn-primary' onClick={createBuyer}>Submit</button>
         </div>
         <br/>
         <br/>
@@ -52,43 +124,30 @@ const Buyer = (props) => {
                 <th scope='col'>Action</th>
                 </tr>
             </thead>
-            <tbody>
-             <tr>
-                <th scope="row">1</th>
-                <td>ILT</td>
-                <td>PA2</td>
-                <td>Vision Leaf Tobacco</td>
-                <td>
-                <a href='#exampleModal' className='bi bi-pencil-square me-3'
-                     data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
-                    <a href='#' className='bi bi-trash' data-bs-toggle="modal" data-bs-target="#exampleModal_1"></a>
+            <tbody id="tbody">
 
-                </td>
-             </tr>
-             <tr>
-                <th scope="row">1</th>
-                <td>ILT</td>
-                <td>PA2</td>
-                <td>Vision Leaf Tobacco</td>
-                <td>
-                <a href='#exampleModal' className='bi bi-pencil-square me-3'
-                     data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
-                    <a href='#' className='bi bi-trash' data-bs-toggle="modal" data-bs-target="#exampleModal_1"></a>
 
-                </td>
-             </tr>
-             <tr>
-                <th scope="row">1</th>
-                <td>ILT</td>
-                <td>PA2</td>
-                <td>Vision Leaf Tobacco</td>
-                <td>
-                    <a href='#exampleModal' className='bi bi-pencil-square me-3'
-                     data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
-                    <a href='#' className='bi bi-trash' data-bs-toggle="modal" data-bs-target="#exampleModal_1"></a>
+            {
 
-                </td>
-             </tr>
+                props.buyersData.map((u,i)=>{
+
+                    return(
+                        <tr>
+                            <th scope="row">{props.buyersData[i].id}</th>
+                            <td>{props.buyersData[i].name}</td>
+                            <td>{props.buyersData[i].buyer_code}</td>
+                            <td>{props.buyersData[i].selling_point_name}</td>
+                            <td>
+                                <a href='#exampleModal' className='bi bi-pencil-square me-3'
+                                   data-bs-toggle="modal" data-bs-target="#exampleModal" id={props.buyersData[i].id}></a>
+                                <a href='#' className='bi bi-trash' data-bs-toggle="modal" data-bs-target="#exampleModal_1" id={props.buyersData[i].id}></a>
+
+                            </td>
+                        </tr>
+                    )
+                })
+            }
+
 
              </tbody>
 

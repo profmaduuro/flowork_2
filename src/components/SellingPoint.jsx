@@ -2,6 +2,39 @@ import React from 'react'
 import './selling.css'
 
 const SellingPoint = (props) => {
+
+
+    const selling_point=()=>{
+
+        const name=document.getElementById("name").value
+        const floor_code=document.getElementById("floor_code").value
+        const floor_id=document.getElementById("floor_id").value
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name:name,
+                floor_code:floor_code,
+                userid: 1,
+                floor_id:floor_id,
+                created_at:"06-08-2024"
+            })
+        };
+
+
+        fetch('http://localhost/king/api/create_selling_point.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data[0].response,"Success")
+
+            });
+
+    }
+
+
+
   return (
     <div>
       <a href="/">
@@ -16,22 +49,20 @@ const SellingPoint = (props) => {
       <form action="" className=''>
     
         <label htmlFor="File to Upload">Name</label>
-        <input type="text" className='form-control' placeholder='Enter Name' />
+        <input type="text" className='form-control' placeholder='Enter Name' id="name"/>
 
         <br />
 
         <label htmlFor="File to Upload">Floor Code</label>
-        <input type="text" className='form-control' placeholder='Enter Floor Code' />
+        <input type="text" className='form-control' placeholder='Enter Floor Code' id="floor_code"/>
         
         <br />
         <label htmlFor="File to Upload">Floor ID</label>
-        <input type="text" className='form-control sm' placeholder='Enter Floor id' />
+        <input type="text" className='form-control sm' placeholder='Enter Floor id' id="floor_id" />
 
         <br />
-
-        <button type="submit" className='btn btn-primary' value='Submit'>Submit</button>
-
         </form>
+          <button type="submit" className='btn btn-primary' value='Submit' onClick={selling_point}>Submit</button>
         
       </div>
 
