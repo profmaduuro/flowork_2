@@ -27,6 +27,14 @@ body {
 	box-shadow: 0px 0px 24px #5C5696;
 }
 
+h4 {
+	text-align: center;
+	text-shadow: 10px;
+	color: #5D54A4;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
 .screen__content {
 	z-index: 1;
 	position: relative;	

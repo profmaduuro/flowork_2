@@ -190,17 +190,17 @@ const SideBar=(props)=> {
                 <span>Balancing</span>
                 </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.batchingclick}>
+                    <Link to="/Batching">
                         <i className='bi bi-circle'></i>
                 <span>Sale Batching(barcode)</span>
-                </a>
+                </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.salesclick}>
+                    <Link to="/Sales">
                         <i className='bi bi-circle'></i>
                 <span>Sale Processing</span>
-                </a>
+                </Link>
                 </li>
 
             </ul>
