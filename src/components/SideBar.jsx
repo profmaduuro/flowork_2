@@ -184,11 +184,11 @@ const SideBar=(props)=> {
                 <span>Capturing</span>
                 </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.balancingclick}>
+                    <Link to="/Balancing">
                         <i className='bi bi-circle'></i>
                 <span>Balancing</span>
-                </a>
+                </Link>
                 </li>
                 <li>
                     <a href="#">
