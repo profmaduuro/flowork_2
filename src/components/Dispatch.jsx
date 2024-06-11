@@ -46,7 +46,7 @@ export const Dispatch = (props) => {
                         <div className='col-5'>
                             <label htmlFor="">Select Truck</label>
                             <select type="text" className='form-control'>
-                                <option value="">Select Truck</option>
+                                <option value="">Select Truck </option>
                                 <option value="">AEG1010150424-PA2</option>
                                 <option value="">AEG1010150424-PA4</option>
                                 <option value="">AEG1010150424-PA3</option>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './balereceiving.css'
-import Badge from 'react-bootstrap/Badge';
+// import Badge from 'react-bootstrap/Badge';
 
 export const Capture = (props) => {
 
@@ -61,7 +61,7 @@ export const Capture = (props) => {
                     <i className='bi bi-house-door'></i>
                 </a>
 
-                <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Bale Receiving</h5>
+                <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Ticket Capturing</h5>
 
             </div>
 
@@ -70,24 +70,74 @@ export const Capture = (props) => {
 
             <div className='col-auto card_10 col-sm-4'>
                 <div className='form'>
-                    <div>
+                    {/* <div>
                         <p id="response">echo #bales received/ echo is balanced</p>
-                    </div>
+                    </div> */}
                     <form action="">
-                        <label htmlFor="">Barcode</label>
-                        <input type="text" className='form-control' id="barcode"/>
-                        <label htmlFor="">Grower</label>
-                        <input type="text" className='form-control' id="grower_num"/>
-                        <label htmlFor="">Group</label>
-                        <input type="text" className='form-control' id="group"/>
-                        <label htmlFor="">Lot</label>
-                        <input type="text" className='form-control' id="lot"/>
+                        <div>
+                            <label htmlFor="">Scan Barcode</label>
+                            <input type="barcode" className='form-control' id="barcode"/>
+                        </div>
                         <br />
-                        <button type='button' className='btn btn-success' onClick={saveBaleData}>Receive <Badge id="junused" bg="secondary"></Badge></button>
-                    </form>
+                        <div className='row'>
+                            <div className='col'>
+                                <label htmlFor="">Grower</label>
+                              <p className='form-control' id=''></p>
+
+                            </div>
+                            <div className='col'>
+                                <label htmlFor="">Mass</label>
+                                <p className='form-control' id=''></p>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col'>
+                                <label htmlFor="">Group</label>
+                              <p className='form-control' id=''></p>
+
+                            </div>
+                            <div className='col'>
+                                <label htmlFor="">Lot</label>
+                                <p className='form-control' id=''></p>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div className='row'>
+                            <div className='col'>
+                                <label htmlFor="">Sale Code</label>
+                              <select className='form-control' id=''>
+                                <option value="">Select</option>
+                                <option value="">RO</option>
+                                <option value="">CO</option>
+                                <option value="">RB</option>
+                                <option value="">XX</option>
+                              </select>
+
+                            </div>
+                            <div className='col'>
+                                <label htmlFor="">TIMB Grade</label>
+                                <input className='form-control' id=''/>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col'>
+                                <label htmlFor="">Buyer Grade</label>
+                                <input className='form-control' id=''/>
+
+                            </div>
+                            <div className='col'>
+                                <label htmlFor="">Price</label>
+                                <input className='form-control' id=''/>
+                            </div>
+                        </div>
+                        
+
+                        </form>
                     <br />
                     <div>
-                        <button className='btn btn-primary'>Complete Grower</button>
+                        <button className='btn btn-primary'>Submit</button>
                     </div>
 
                 </div>
@@ -95,22 +145,6 @@ export const Capture = (props) => {
             </div>
 
             <br />
-
-            {/* <div className='col-auto card_10 col-sm-4'>
-            <div className=''>
-              <p>V125160</p>
-
-
-
-
-            </div>
-
-        </div> */}
-
-            {/* modals */}
-
-
-
 
 
         </div>
