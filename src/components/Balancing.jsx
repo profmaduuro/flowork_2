@@ -32,36 +32,31 @@ export const Balancing = (props) => {
                         <th>Status</th>
                     </thead>
                     <tbody>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                            <td>V123</td>
-                            <td>Bright Kaponda</td>
-                            <td>1</td>
-                            <td>VLT</td>
-                            <td>15-05-2024</td>
-                            <td>1123</td>
-                            <td>0001</td>
-                            <td>1500</td>
-                            <td>15000</td>
-                            <td>1200</td>
-                            <td>12000</td>
-                            <td>Yes</td>
-                            <td>Captured</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                            <td>V123</td>
-                            <td>Bright Kaponda</td>
-                            <td>1</td>
-                            <td>VLT</td>
-                            <td>15-05-2024</td>
-                            <td>1123</td>
-                            <td>0001</td>
-                            <td>1500</td>
-                            <td>15000</td>
-                            <td>1200</td>
-                            <td>12000</td>
-                            <td>Yes</td>
-                            <td>Balanced</td>
-                        </tr>
+
+                    {
+                        props.balancingData.map((u,i)=>{
+                            return(
+                                <tr  data-bs-toggle="modal" data-bs-target="#example2">
+                                    <td>{props.balancingData[i].grower_num}</td>
+                                    <td>{props.balancingData[i].name +" "+props.balancingData[i].surname}</td>
+                                    <td>{props.balancingData[i].splitid}</td>
+                                    <td>VLT</td>
+                                    <td>15-05-2024</td>
+                                    <td>{props.balancingData[i].transporter_growersid}</td>
+                                    <td>0001</td>
+                                    <td>1500</td>
+                                    <td>15000</td>
+                                    <td>1200</td>
+                                    <td>12000</td>
+                                    <td>Yes</td>
+                                    <td>Captured</td>
+                                </tr>
+                            )
+                        })
+
+                    }
+
+
                     </tbody>
                 </table>
              

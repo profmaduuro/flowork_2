@@ -53,7 +53,8 @@ class App extends Component {
       "buyersData":[],
       "startOfDayData":[],
       "deliveryNoteData":[],
-      "growerDeliveryNoteData":[]
+      "growerDeliveryNoteData":[],
+      "balancingData":[]
 
     }
   }
@@ -287,7 +288,22 @@ class App extends Component {
   }
 
   balancingclick=()=>{
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://localhost/king/api/get_bales_ready_for_tickets.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"balancingData":data})
+        });
+
     this.setState({"route":"Balancing"})
   }
   salesbatchingclick=()=>{
@@ -759,7 +775,7 @@ class App extends Component {
                       ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
             <Main>
-              <Balancing />
+              <Balancing balancingData={this.state.balancingData}/>
             </Main>
           </>
       );

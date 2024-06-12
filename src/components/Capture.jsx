@@ -6,9 +6,28 @@ export const Capture = (props) => {
 
     let ticketid=0;
 
+    const inputOnClick=()=>{
+
+        var input = document.getElementById("price");
+
+// Execute a function when the user presses a key on the keyboard
+        input.addEventListener("keypress", function(event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                //event.preventDefault();
+                // Trigger the button element with a click
+                // document.getElementById("myBtn").click();
+                saveBaleData();
+
+            }
+        });
+    }
+
     const getBarcodeData=()=>{
 
         const barcode = document.getElementById("barcode").value
+
 
 
         if (barcode.length===10) {
@@ -36,7 +55,11 @@ export const Capture = (props) => {
                          document.getElementById("group").innerText=data[0].group
                          document.getElementById("lot").innerText=data[0].lot
                          document.getElementById("mass").innerText=data[0].mass
-                         document.getElementById("ticketid").value=data[0].ticketid
+                         document.getElementById("ticketid").value=data[0].id
+                        ticketid=data[0].id
+                         document.getElementById("timb_grade").focus()
+                         inputOnClick()
+
 
 
                     }else {
@@ -56,12 +79,13 @@ export const Capture = (props) => {
 
     const saveBaleData=()=>{
 
-        const barcode = document.getElementById("barcode").value
-        const grower_num = document.getElementById("grower_num").value
-        const group = document.getElementById("group").value
-        const lot = document.getElementById("lot").value
+        const sale_code = document.getElementById("sale_code").value
+        const timb_grade = document.getElementById("timb_grade").value
+        const buyer_grade = document.getElementById("buyer_grade").value
+        const price = document.getElementById("price").value
+        const ticketid=document.getElementById("ticketid").value
+        console.log(ticketid)
 
-        if (barcode.trim()!=="") {
             const d = new Date();
             let date = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
 
@@ -70,36 +94,45 @@ export const Capture = (props) => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     userid: 1,
-                    temp_barcode: barcode,
-                    grower_num: grower_num,
-                    bale_group:group,
-                    lot:lot,
+                    ticketid:ticketid,
+                    sale_code: sale_code,
+                    price: price,
+                    sales_rep:"",
+                    buyer_grades:buyer_grade,
+                    timb_grades:timb_grade,
                     created_at: date
                 })
             };
 
 
-            fetch('http://localhost/king/api/create_bale_junus.php', requestOptions)
+            fetch('http://localhost/king/api/sold_bales.php', requestOptions)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data[0])
+
                     if (data[0].response === "success") {
 
-                        document.getElementById("barcode").value = ""
-                        document.getElementById("group").value = ""
-                        document.getElementById("lot").value = ""
-                        document.getElementById("junused").innerText = data[0].junused_bales
 
+                        document.getElementById("barcode").value = ""
+                        document.getElementById("group").innerText = ""
+                        document.getElementById("lot").innerText = ""
+                        document.getElementById("price").value=""
+                        document.getElementById("timb_grade").value=""
+                        document.getElementById("buyer_grade").value=""
+                        document.getElementById("sale_code").value=""
+
+                        document.getElementById("response").innerText=data[0].response
 
                     } else {
-                        document.getElementById("response").innerText = data[0].response
+
+                        document.getElementById("response").innerText=data[0].response
+                       // document.getElementById("response").innerText = data[0].response
                     }
                 });
-        }else {
-            document.getElementById("response").innerText = " Capture Barcode"
-        }
+
+
 
     }
+
 
 
 
@@ -125,7 +158,7 @@ export const Capture = (props) => {
                     <form action="">
                         <div>
                             <label htmlFor="" >Scan Barcode</label>
-                            <input type="barcode" className='form-control' id="barcode" onInput={getBarcodeData}/>
+                            <input type="barcode" className='form-control' id="barcode" onInput={getBarcodeData} autoFocus/>
                         </div>
                         <br />
                         <div className='row'>
@@ -185,12 +218,15 @@ export const Capture = (props) => {
                         <div>
                             <label id="ticketid"></label>
                         </div>
-                        
+
+                        <div>
+                            <label id="response"></label>
+                        </div>
 
                         </form>
                     <br />
                     <div>
-                        <button className='btn btn-primary'>Submit</button>
+                        <button className='btn btn-primary' onClick={saveBaleData}>Submit</button>
                     </div>
 
                 </div>
@@ -202,4 +238,5 @@ export const Capture = (props) => {
 
         </div>
     )
+
 }
