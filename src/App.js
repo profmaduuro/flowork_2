@@ -290,7 +290,7 @@ class App extends Component {
     console.log("pri")
     this.setState({"route":"Balancing"})
   }
-  batchingclick=()=>{
+  salesbatchingclick=()=>{
     console.log("pri")
     this.setState({"route":"Batching"})
   }
@@ -321,7 +321,7 @@ class App extends Component {
        ticketsclick={this.ticketsclick} batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick}
        dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick} 
        capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick} 
-        salesclick = {this.salesclick}/>
+        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
       <Main >
         <PageTitle/>
       </Main>
@@ -344,7 +344,7 @@ class App extends Component {
       ticketsclick={this.ticketsclick} batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
       dispatchclick={this.dispatchclick}  loginclick={this.loginclick} scaleclick={this.scaleclick}
        capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick}
-        salesclick = {this.salesclick} />
+        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} />
         <Main >
           <PageTitle/>
         </Main>
@@ -366,7 +366,7 @@ class App extends Component {
       ticketsclick={this.ticketsclick} batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
       dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick}
        capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick}
-        salesclick = {this.salesclick}/>
+        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
         <Main >
         <Files />
         </Main>
@@ -389,7 +389,7 @@ class App extends Component {
       ticketsclick={this.ticketsclick} batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
       dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick} 
        capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick} 
-        salesclick = {this.salesclick}/>
+        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
         <Main >
           <SalesRun startOfDayData={this.state.startOfDayData}/>
         </Main>
@@ -412,7 +412,7 @@ class App extends Component {
       batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
       dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick} 
       capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick} 
-       salesclick = {this.salesclick}/>
+       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
       <Main >
         <GrowerReg />
       </Main>
@@ -434,7 +434,7 @@ class App extends Component {
       batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
       dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick}
        capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick} 
-        salesclick = {this.salesclick}/>
+        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
         <Main >
           <Booking />
         </Main>
@@ -456,7 +456,7 @@ class App extends Component {
        batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
        dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick}
         capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick} 
-         salesclick = {this.salesclick}/>
+         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
         <Main >
           <StopOrderProcess />
         </Main>
@@ -477,7 +477,7 @@ class App extends Component {
       batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} 
       dispatchclick={this.dispatchclick} loginclick={this.loginclick} scaleclick={this.scaleclick} 
        capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick} 
-        salesclick = {this.salesclick}/>
+        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
         <Main>
           <SellingPoint />
         </Main>
@@ -495,7 +495,7 @@ class App extends Component {
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
       batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
       loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick}
-      balancingclick = {this.balancingclick}  salesclick = {this.salesclick} />
+      balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} />
          <Main>
           <Buyer sellingPointsData={this.state.sellingPointsData} buyersData={this.state.buyersData}/>
         </Main>
@@ -514,7 +514,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick}
          capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick}
-          salesclick = {this.salesclick}/>
+          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <ManageUsers />
          </Main>
@@ -534,7 +534,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} capturebalepriceclick={this.capturebalepriceclick} loginclick={this.loginclick}
          scaleclick={this.scaleclick} balancingclick = {this.balancingclick} 
-         salesclick = {this.salesclick} />
+         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} />
          <Main>
           <Grades buyersData={this.state.buyersData}/>
          </Main>
@@ -554,7 +554,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} 
          capturebalepriceclick={this.capturebalepriceclick} balancingclick = {this.balancingclick} 
-         salesclick = {this.salesclick}/>
+         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Backup />
          </Main>
@@ -575,7 +575,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-        balancingclick = {this.balancingclick}  salesclick = {this.salesclick}/>
+        balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Parameters />
          </Main>
@@ -595,7 +595,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-        balancingclick = {this.balancingclick}  salesclick = {this.salesclick}/>
+        balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Deliverynotes deliveryNoteData={this.state.deliveryNoteData} growerDeliveryNoteData={this.state.growerDeliveryNoteData}/>
          </Main>
@@ -616,7 +616,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-        balancingclick = {this.balancingclick}  salesclick = {this.salesclick}/>
+        balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Balereceiving />
          </Main>
@@ -634,7 +634,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-        balancingclick = {this.balancingclick}  salesclick = {this.salesclick}/>
+        balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Tickets ticketsData={this.state.ticketsData}/>
          </Main>
@@ -652,7 +652,8 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick}  floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} salesclick = {this.salesclick}/>
+         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} salesclick = {this.salesclick} 
+         salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Ticketbatching ticketsBatchingData={this.state.ticketsBatchingData} batchingclick = {this.batchingclick}/>
          </Main>
@@ -671,7 +672,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
          ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
-         salesclick = {this.salesclick}/>
+         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Floorsummary />
          </Main>
@@ -690,7 +691,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick}
          ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
-         salesclick = {this.salesclick}/>
+         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Dispatch />
          </Main>
@@ -718,7 +719,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
          ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
-         salesclick = {this.salesclick}/>
+         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
          <Main>
           <Scale />
          </Main>
@@ -737,7 +738,7 @@ class App extends Component {
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
                       ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
-                      salesclick = {this.salesclick}/>
+                      salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
             <Main>
               <Capture />
             </Main>
@@ -756,7 +757,7 @@ class App extends Component {
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
                       ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
-                      salesclick = {this.salesclick}/>
+                      salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
             <Main>
               <Balancing />
             </Main>
@@ -775,7 +776,7 @@ class App extends Component {
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
                       ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
-                      salesclick = {this.salesclick}/>
+                      salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
             <Main>
               <Batching />
             </Main>
@@ -794,7 +795,7 @@ class App extends Component {
                        batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                        loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
                         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  
-                        salesclick = {this.salesclick}/>
+                        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}/>
               <Main>
                 <Sales />
               </Main>
