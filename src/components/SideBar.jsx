@@ -190,7 +190,7 @@ const SideBar=(props)=> {
                 <span>Balancing</span>
                 </Link>
                 </li>
-                <li onClick={props.batchingclick}>
+                <li onClick={props.salesbatchingclick}>
                     <Link to="/Batching">
                         <i className='bi bi-circle'></i>
                 <span>Sale Batching(barcode)</span>
