@@ -9,7 +9,7 @@ export const Batching = (props) => {
                     <i className='bi bi-house-door'></i>
                 </a>
 
-            <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Ticket Batching</h5>
+            <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Barcode Batching</h5>
             <br />
 
        
