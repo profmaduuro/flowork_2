@@ -55,7 +55,8 @@ class App extends Component {
       "buyersData":[],
       "startOfDayData":[],
       "deliveryNoteData":[],
-      "growerDeliveryNoteData":[]
+      "growerDeliveryNoteData":[],
+      "balancingData":[]
 
     }
   }
@@ -289,7 +290,22 @@ class App extends Component {
   }
 
   balancingclick=()=>{
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://localhost/king/api/get_bales_ready_for_tickets.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"balancingData":data})
+        });
+
     this.setState({"route":"Balancing"})
   }
   salesbatchingclick=()=>{
@@ -681,7 +697,7 @@ class App extends Component {
         sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
         gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
-        batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
+        batchingclick={this.batchingclick}  floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
          ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} salesclick = {this.salesclick} 
          salesbatchingclick={this.salesbatchingclick} 
@@ -795,7 +811,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <Balancing />
+              <Balancing balancingData={this.state.balancingData}/>
             </Main>
           </>
       );
