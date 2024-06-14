@@ -230,7 +230,7 @@ export const Ticketbatching = (props) => {
                 <i className='bi bi-house-door'></i>
                 </a>
             
-            <h5 className='navbar-expand-lg navbar-light bg-light card_10'>  Tickets Batching</h5>
+            <h3>Tickets Batching</h3>
         </div>
 
         <br />
@@ -254,9 +254,26 @@ export const Ticketbatching = (props) => {
             
             {/* <div class="tab-content pt-5" id="tab-content">
                 <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0"> */}
-                    <div className='table table-responsive'>
+<br />
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
+
+                        </div>   
+                    </div>
+                        <br />
+
+                    <div className='table table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
                         <table className='table table-striped table-hover'>
-                            <thead>
+                            <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                                 <th>Grower</th>
                                 <th>Name</th>
                                 <th>Bales</th>

@@ -37,6 +37,8 @@ const SalesRun = (props) => {
       <a href="/home">
               <i className='bi bi-house-door'></i>
             </a>
+
+            <h3 className='bi bi-home'>Grower Registration</h3>
      <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light card_10">
             <div class="container-fluid">
@@ -58,10 +60,12 @@ const SalesRun = (props) => {
 
       <br />
       <br />
-
-      <div className='card_10 table-responsive'>
+     <div className='card_10'>
+      <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
         <table className='table table-striped table-hover'>
-            <thead>
+            <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                 <tr>
                     <th>Id</th>
                     <th>Date</th>
@@ -87,6 +91,7 @@ const SalesRun = (props) => {
 
         </table>
 
+      </div>
       </div>
 
       {/* Modals */}

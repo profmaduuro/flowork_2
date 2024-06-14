@@ -102,6 +102,8 @@ export const Deliverynotes = (props) => {
             <a href="/home">
                 <i className='bi bi-house-door'></i>
             </a>
+
+            <h3 className='bi bi-home'>Deliveries</h3>
         </div>
 
         <div>
@@ -142,9 +144,11 @@ export const Deliverynotes = (props) => {
             </ul>
             <div class="tab-content pt-5" id="tab-content">
                 <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0">
-                    <div className='table table-responsive'>
+                    <div className='table table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
                         <table className='table table-striped table-hover'>
-                            <thead>
+                            <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                                 <th>TDN #</th>
                                 <th>Delivery By</th>
                                 <th>ID</th>
@@ -186,9 +190,11 @@ export const Deliverynotes = (props) => {
                 </div>
                 <div class="tab-pane" id="icon-tabpanel-1" role="tabpanel" aria-labelledby="icon-tab-1">
                 <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0">
-                    <div className='table table-responsive'>
+                    <div className='table table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
                         <table className='table table-striped table-hover'>
-                            <thead>
+                            <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                                 <th>GDN #</th>
                                 <th>Grower</th>
                                 <th>Name</th>

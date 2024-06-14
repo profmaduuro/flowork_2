@@ -143,7 +143,7 @@ export const Capture = (props) => {
                     <i className='bi bi-house-door'></i>
                 </a>
 
-                <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Ticket Capturing</h5>
+                <h3>Ticket Capturing</h3>
 
             </div>
 

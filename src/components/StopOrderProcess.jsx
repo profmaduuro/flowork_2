@@ -6,7 +6,7 @@ const StopOrderProcess = (props) => {
       <a href="/home">
               <i className='bi bi-house-door'></i>
             </a>
-     {/* <h3 className='bi bi-home'>StopOrder Processing</h3> */}
+     <h3 className='bi bi-home'>StopOrder Processing</h3>
 
      <div className=''>
         <nav class="navbar navbar-expand-lg navbar-light bg-white card_10">
@@ -29,12 +29,27 @@ const StopOrderProcess = (props) => {
       <br />
       <br />
 
-      <div className='card_10 table-responsive'>
-        <div>
-          <h5>Deductions Table</h5>
-        </div>
+      <div className='card_10'>
+      <h5><b>Deductions</b></h5>
+      <br />
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
+
+                        </div>   
+                    </div>
+                    <br />
+        <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
         <table className='table table-striped table-hover'>
-            <thead>
+            <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                 <tr>
                   <th>Sale Date</th>
                 <th>Grower</th>
@@ -70,10 +85,99 @@ const StopOrderProcess = (props) => {
                     <td>4152</td>
                     <td>15/05/2024</td>
                 </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
+                <tr>
+                    <td>15/05/2024</td>
+                    <td>V101101</td>
+                    <td>61512</td>
+                    <td>MTC Rollover</td>
+                    <td>150.00</td>
+                    <td>USD</td>
+                    <td>Internal Invoice</td>
+                    <td>4152</td>
+                    <td>15/05/2024</td>
+                </tr>
                 
             </tbody>
 
         </table>
+        </div>
 
       </div>
 

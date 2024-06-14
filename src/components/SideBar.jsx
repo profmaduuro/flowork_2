@@ -221,29 +221,17 @@ const SideBar=(props)=> {
 
             <ul id='stoporder-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
-                <li>
-                    <a href="#">
+                <li onClick={props.stoprderverifyclick}>
+                    <Link to="/Stoporderverification">
                         <i className='bi bi-circle'></i>
                 <span>Stoporder Verification</span>
-                </a>
+                </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.internalsclick}>
+                    <Link to="/CreateInternals">
                         <i className='bi bi-circle'></i>
-                <span>Capturing</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className='bi bi-circle'></i>
-                <span>Batching</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className='bi bi-circle'></i>
-                <span>Edit Internals</span>
-                </a>
+                <span>Create Internal Stoporders</span>
+                </Link>
                 </li>
             </ul>
         </li>
@@ -272,7 +260,13 @@ const SideBar=(props)=> {
                 <li>
                     <a href="#">
                         <i className='bi bi-circle'></i>
-                <span>Capture Internals</span>
+                <span>Capture Internal Stoporders</span>
+                </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i className='bi bi-circle'></i>
+                <span>Stoporder Batching</span>
                 </a>
                 </li>
                 <li>

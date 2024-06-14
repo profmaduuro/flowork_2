@@ -61,7 +61,7 @@ export const Balereceiving = (props) => {
             <i className='bi bi-house-door'></i>
                 </a>
                 
-                <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Bale Receiving</h5>
+                <h3>Bale Receiving</h3>
             
         </div>
         

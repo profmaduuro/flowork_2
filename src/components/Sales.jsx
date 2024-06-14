@@ -9,7 +9,7 @@ export const Sales = (props) => {
                     <i className='bi bi-house-door'></i>
                 </a>
 
-            <h5 className=''>Sales Processing</h5>
+            <h3 className=''>Sales Processing</h3>
 
             
 
@@ -51,10 +51,27 @@ export const Sales = (props) => {
          <br />
          <br />
         
+      <div className='card_10'>
+      <h4>Sales</h4>
+                <br />
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
 
-        <div className='card_10 table-responsive overflow-auto'>
+                        </div>   
+                    </div>
+                    <br />
+        <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
                 <table className='table table-striped'>
-                    <thead>
+                    <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                         <th>Grower</th>
                         <th>Name</th>
                         <th>Sale</th>
@@ -140,6 +157,74 @@ export const Sales = (props) => {
                             <td>Yes</td>
                             <td>Captured</td>
                         </tr>
+                        <tr>
+                            <td>V123</td>
+                            <td>Bright Kaponda</td>
+                            <td>1</td>
+                            <td>VLT</td>
+                            <td>15-05-2024</td>
+                            <td>1123</td>
+                            <td>0001</td>
+                            <td>1500.00</td>
+                            <td>15000.00</td>
+                            <td>1200.00</td>
+                            <td>12000.00</td>
+                            <td>70.00</td>
+                            <td>100.00</td>
+                            <td>Yes</td>
+                            <td>Captured</td>
+                        </tr>
+                        <tr>
+                            <td>V123</td>
+                            <td>Bright Kaponda</td>
+                            <td>1</td>
+                            <td>VLT</td>
+                            <td>15-05-2024</td>
+                            <td>1123</td>
+                            <td>0001</td>
+                            <td>1500.00</td>
+                            <td>15000.00</td>
+                            <td>1200.00</td>
+                            <td>12000.00</td>
+                            <td>70.00</td>
+                            <td>100.00</td>
+                            <td>Yes</td>
+                            <td>Captured</td>
+                        </tr>
+                        <tr>
+                            <td>V123</td>
+                            <td>Bright Kaponda</td>
+                            <td>1</td>
+                            <td>VLT</td>
+                            <td>15-05-2024</td>
+                            <td>1123</td>
+                            <td>0001</td>
+                            <td>1500.00</td>
+                            <td>15000.00</td>
+                            <td>1200.00</td>
+                            <td>12000.00</td>
+                            <td>70.00</td>
+                            <td>100.00</td>
+                            <td>Yes</td>
+                            <td>Captured</td>
+                        </tr>
+                        <tr>
+                            <td>V123</td>
+                            <td>Bright Kaponda</td>
+                            <td>1</td>
+                            <td>VLT</td>
+                            <td>15-05-2024</td>
+                            <td>1123</td>
+                            <td>0001</td>
+                            <td>1500.00</td>
+                            <td>15000.00</td>
+                            <td>1200.00</td>
+                            <td>12000.00</td>
+                            <td>70.00</td>
+                            <td>100.00</td>
+                            <td>Yes</td>
+                            <td>Captured</td>
+                        </tr>
                     </tbody>
                 </table>
              
@@ -147,6 +232,7 @@ export const Sales = (props) => {
                
 
                 </div>
+            </div>
                 
 
                 {/* Modals */}

@@ -5,7 +5,10 @@ export const Dispatch = (props) => {
     <div>
          <a href="/home">
                 <i className='bi bi-house-door'></i> 
+
         </a>
+        <h3 className='bi bi-home'>Dispatch</h3>
+
         <nav class="navbar navbar-expand-lg navbar-light bg-white card_10">
             <div class="container-fluid">
                 {/* <a href="#" class="navbar-brand">Brand</a> */}
@@ -81,10 +84,25 @@ export const Dispatch = (props) => {
                     
                 </div>
                 <div class="tab-pane" id="icon-tabpanel-1" role="tabpanel" aria-labelledby="icon-tab-1">
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
+
+                        </div>   
+                    </div>
+                    <br />
                 <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0">
-                    <div className='table table-responsive'>
+                    <div className='table table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
                         <table className='table table-striped table-hover'>
-                            <thead>
+                            <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                                 <th></th>
                                 <th>Truck ID</th>
                                 <th>Horse Reg</th>
@@ -110,6 +128,150 @@ export const Dispatch = (props) => {
                                     <td>Closed</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
+                                    <td><input type="checkbox" className='form-check-input'/></td>
+                                    <td>AED1152-PA2</td>
+                                    <td>AED115</td>
+                                    <td>AED116</td>
+                                    <td>15-05-2024</td>
+                                    <td>PA2</td>
+                                    <td>180</td>
+                                    <td>2024</td>
+                                    <td>BKAPONDA</td>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr> 
                                     <td><input type="checkbox" className='form-check-input'/></td>
                                     <td>AED1152-PA2</td>
                                     <td>AED115</td>

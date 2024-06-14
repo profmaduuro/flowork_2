@@ -37,6 +37,7 @@ export const Floorsummary = (props) => {
              <a href="/home">
                 <i className='bi bi-house-door'></i> 
             </a>
+            <h3 className='bi bi-home'>Floor Summary</h3>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-white card_10">
             <div class="container-fluid">
@@ -95,9 +96,11 @@ export const Floorsummary = (props) => {
                 <h6>Daily Floor Summary</h6>
             </div>
             <br />
-            <div className='table-responsive'>
+            <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
                 <table className='table table-striped'> 
-                  <thead>
+                  <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                     <th>Grower</th>
                     <th>Barcode</th>
                     <th>Group</th>
@@ -109,6 +112,116 @@ export const Floorsummary = (props) => {
                     <th>Date</th>
                   </thead>
                   <tbody>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
+                    <tr>
+                        <td>V124563</td>
+                        <td>650000015263r</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>120</td>
+                        <td>5</td>
+                        <td>VL0012546</td>
+                        <td>A</td>
+                        <td>15-05-2024</td>
+                    </tr>
                     <tr>
                         <td>V124563</td>
                         <td>650000015263r</td>
