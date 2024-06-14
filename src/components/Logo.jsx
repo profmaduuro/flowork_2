@@ -12,7 +12,7 @@ function Logo() {
     justify-content-between'>
 <a href="/" className='logo d-flex align-items-center'>
     {/* <img src='' alt=''/> */}
-    <span className='d-none d-lg-block'>FloorSystem</span>
+    <span className='d-none d-lg-block'>Flowork</span>
 </a>
 <i
 className='bi bi-list toggle-sidebar-btn'

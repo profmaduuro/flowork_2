@@ -1,4 +1,6 @@
 import React from 'react'
+import 'fa-icons';
+
 
 export const Stoporderverification = (props) => {
   return (
@@ -9,17 +11,31 @@ export const Stoporderverification = (props) => {
                     <i className='bi bi-house-door'></i>
                 </a>
 
-            <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Stoporder Verification</h5>
+            <h3>Stoporder Verification</h3>
             <br />
 
        
 
             <div className='card_10'>
-            <h4>Fetched Growers</h4>
+                <h4>Fetched Growers</h4>
+                <br />
+
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
+
+                        </div>   
+                    </div>
+                        <br />
                 
-                <div className='table-responsive overflow-auto' data-bs-spy="scroll" style={{ maxHeight: "450px", 
+             <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
                     overflowY: "auto" }} >
-                
                 <table className='table table-striped'>
                     <thead style={{ position: "sticky", 
                     top: "0" }} className='card_10'>

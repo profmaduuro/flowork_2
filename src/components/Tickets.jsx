@@ -195,7 +195,7 @@ export const Tickets = (props) => {
         <a href="/home">
                 <i className='bi bi-house-door'></i>
                 </a>
-                <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Ticket Printing</h5>
+                <h3>Ticket Printing</h3>
         
 
         </div>
@@ -206,9 +206,25 @@ export const Tickets = (props) => {
         <br />
 
         <div className='card_10'>
-            <div className='table-responsive'>
+        <br />
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
+
+                        </div>   
+                    </div>
+                        <br />
+            <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
                 <table className='table table-striped'>
-                    <thead>
+                    <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                     <th>Grower</th>
                     <th>Name</th>
                     <th>Selling Point</th>

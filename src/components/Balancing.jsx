@@ -9,14 +9,30 @@ export const Balancing = (props) => {
                     <i className='bi bi-house-door'></i>
                 </a>
 
-            <h5 className='navbar-expand-lg navbar-light bg-light card_10'>Ticket Balancing</h5>
+            <h3>Sale Balancing</h3>
             <br />
 
        
+            <div className='card_10'>
+            <br />
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
 
-            <div className='card_10 table-responsive'>
+                        </div>   
+                    </div>
+                    <br />
+            <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
             <table className='table table-striped'>
-                    <thead>
+                    <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                         <th>Grower</th>
                         <th>Name</th>
                         <th>Sale</th>
@@ -61,10 +77,7 @@ export const Balancing = (props) => {
 
                     </tbody>
                 </table>
-             
-
-                    
-
+            </div>
             </div>
                 
 

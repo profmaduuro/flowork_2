@@ -7,7 +7,7 @@ const Booking = (props) => {
       <a href="/">
               <i className='bi bi-house-door'></i>
             </a>
-     {/* <h3 className='bi bi-home'>Booking</h3> */}
+     <h3 className='bi bi-home'>Grower Booking</h3>
 
      <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light card_10">
@@ -29,10 +29,27 @@ const Booking = (props) => {
 
       <br />
       <br />
+     <div className='card_10'>
+        <h5><b>Bookings</b></h5>
+        <br />
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="search" id="form1" className="form-control input-sm" placeholder='Search' />
+                            
+                        </div>
+                        <div className='col-3'>
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            Submit
+                            </button>
 
-      <div className='card_10 table-responsive'>
+                        </div>   
+                    </div>
+                    <br />
+      <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
         <table className='table table-striped table-hover'>
-            <thead>
+            <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
                 <tr>
                   <th>Sale Date</th>
                 <th>Grower</th>
@@ -109,6 +126,7 @@ const Booking = (props) => {
 
         </table>
 
+      </div>
       </div>
 
       {/* MODALS START HERE */}
