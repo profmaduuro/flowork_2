@@ -301,7 +301,7 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_bales_ready_for_tickets.php', requestOptions)
+    fetch('http://localhost/king/api/get_growers_ready_for_processing.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)

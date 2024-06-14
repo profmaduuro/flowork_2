@@ -85,9 +85,9 @@ export const Tickets = (props) => {
                     var temp_barcodeData = document.createTextNode(data[i].temp_barcode);
 
                     barcode.appendChild(barcodeData)
-                    group .appendChild(groupData)
-                    lot .appendChild(lotData)
-                    mass .appendChild(massData)
+                    group.appendChild(groupData)
+                    lot.appendChild(lotData)
+                    mass.appendChild(massData)
                     temp_barcode.appendChild(temp_barcodeData)
 
                     tr.appendChild(barcode)
@@ -164,9 +164,9 @@ export const Tickets = (props) => {
                     var temp_barcodeData = document.createTextNode(data[i].temp_barcode);
 
                     barcode.appendChild(barcodeData)
-                    group .appendChild(groupData)
-                    lot .appendChild(lotData)
-                    mass .appendChild(massData)
+                    group.appendChild(groupData)
+                    lot.appendChild(lotData)
+                    mass.appendChild(massData)
                     temp_barcode.appendChild(temp_barcodeData)
 
                     tr.appendChild(barcode)
