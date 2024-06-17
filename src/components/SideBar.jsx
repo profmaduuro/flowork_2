@@ -251,11 +251,11 @@ const SideBar=(props)=> {
 
             <ul id='accounts-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
-                <li>
-                    <a href="#">
+                <li onClick={props.purchasesclick}>
+                    <Link to="/Purchasesummary">
                         <i className='bi bi-circle'></i>
                 <span>Purchase Summary</span>
-                </a>
+                </Link>
                 </li>
                 <li>
                     <a href="#">
