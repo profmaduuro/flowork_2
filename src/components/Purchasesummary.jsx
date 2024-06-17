@@ -178,7 +178,7 @@ export const Purchasesummary = () => {
                 </div>
                </div>
         
-        <div class="tab-pane active" id="icon-tabpanel-1" role="tabpanel" aria-labelledby="icon-tab-1">
+        <div class="tab-pane" id="icon-tabpanel-1" role="tabpanel" aria-labelledby="icon-tab-1">
         <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
                     overflowY: "auto" }} >
                 <table className='table table-striped'>
@@ -310,7 +310,7 @@ export const Purchasesummary = () => {
                 </div>
                 </div>
 
-                <div class="tab-pane active" id="icon-tabpanel-2" role="tabpanel" aria-labelledby="icon-tab-2">
+        <div class="tab-pane" id="icon-tabpanel-2" role="tabpanel" aria-labelledby="icon-tab-2">
         <div className='table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
                     overflowY: "auto" }} >
                 <table className='table table-striped'>
