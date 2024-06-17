@@ -6,7 +6,7 @@ const  GrowerReg = (props) => {
             <a href="/home">
               <i className='bi bi-house-door'></i>
             </a>
-            <h3 className='bi bi-home'>Grower Registration</h3>
+            <h3 className='bi bi-home'>Grower Registration</h3>     
       <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light card_10">
             <div class="container-fluid">
