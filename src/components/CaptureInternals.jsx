@@ -113,11 +113,17 @@ export const CaptureInternals = () => {
                         </div>
                         <div class="modal-body">
 
-                        <div>
+                        <div className='row'>
+                            <div className='col'>
                                 <h4>V123456</h4>
-                                <h6>Tafadzwa Maduuro</h6>
-                                
                             </div>
+                            <div className='col'>
+                                <h5>LOTS</h5>
+                                <h6><b>1,2,3,4,5</b></h6>
+                            </div>
+                                
+                                
+                        </div>
                             <br />
                          <div className='row'> 
                             <div className='col'>
@@ -134,10 +140,10 @@ export const CaptureInternals = () => {
                                <label htmlFor="">Quantity</label>
                                <input type="number" className='form-control'/>
                             </div>
-                            <div className='col'>
-                               <label htmlFor="">By Sale</label>
+                            {/* <div className='col'>
+                               <label htmlFor="">ID</label>
                                <input type="number" className='form-control' />
-                            </div>
+                            </div> */}
                             {/* <div className='col'>
                                <label htmlFor="">1st Lot</label>
                                <input type="text" className='form-control' />
