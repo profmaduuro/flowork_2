@@ -2,6 +2,35 @@ import React from 'react'
 
 export const Balancing = (props) => {
 
+    let splitid=0;
+    let transporter_growersid=0;
+    let growerid=0;
+    const balanceBales=()=>{
+
+        const d = new Date();
+        let date = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: transporter_growersid,
+                splitid: splitid,
+                created_at:date,
+                growerid:growerid,
+                userid: 1
+            })
+        };
+
+
+        fetch('http://localhost/king/api/balance_bales.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data)
+            })
+    }
+
     const getBales=(event)=>{
 
         console.log(event.target.id,"ok id")
@@ -12,8 +41,9 @@ export const Balancing = (props) => {
 
 
         //const id=document.getElementById("id").value
-        const splitid=mySplit_transporter_growers_ids.split(",")[0]
-        const transporter_growersid=mySplit_transporter_growers_ids.split(",")[1]
+         splitid=mySplit_transporter_growers_ids.split(",")[0]
+         transporter_growersid=mySplit_transporter_growers_ids.split(",")[1]
+         growerid=mySplit_transporter_growers_ids.split(",")[2]
 
 
 
@@ -174,6 +204,7 @@ export const Balancing = (props) => {
                             let id=[]
                             id.push(props.balancingData[i].splitid)
                             id.push(props.balancingData[i].transporter_growersid)
+                            id.push(props.balancingData[i].growerid)
 
                             if (props.balancingData[i].already_balanced==="YES"){
                                 return(
@@ -285,7 +316,7 @@ export const Balancing = (props) => {
                         </div>
                         <div class="modal-footer">
                             {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
-                            <button type="button" class="btn btn-primary">Balance</button>
+                            <button type="button" class="btn btn-primary" onClick={balanceBales}>Balance</button>
                         </div>
                         </div>
                     </div>

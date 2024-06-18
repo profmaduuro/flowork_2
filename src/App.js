@@ -61,7 +61,8 @@ class App extends Component {
       "startOfDayData":[],
       "deliveryNoteData":[],
       "growerDeliveryNoteData":[],
-      "balancingData":[]
+      "balancingData":[],
+      "captureInternalsData":[]
 
     }
   }
@@ -339,7 +340,21 @@ class App extends Component {
   }
 
   capinternalsclick=()=>{
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://localhost/king/api/get_growers_for_internal_deduction.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"captureInternalsData":data})
+        });
     this.setState({"route":"CaptureInternals"})
   }
 
@@ -953,7 +968,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <CaptureInternals />
+              <CaptureInternals captureInternalsData={this.state.captureInternalsData}/>
             </Main>
           </>
       );
