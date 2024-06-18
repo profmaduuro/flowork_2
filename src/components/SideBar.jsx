@@ -263,16 +263,16 @@ const SideBar=(props)=> {
                 <span>Capture Internal Stoporders</span>
                 </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.bankingclick}>
+                    <Link to="/Banking">
                         <i className='bi bi-circle'></i>
-                <span>Grower Loans</span>
-                </a>
+                <span>Banking</span>
+                </Link>
                 </li>
                 <li>
                     <a href="#">
                         <i className='bi bi-circle'></i>
-                <span>Parameters</span>
+                <span>Payments</span>
                 </a>
                 </li>
                 <li>

@@ -45,6 +45,7 @@ import { Stoporderverification } from './components/Stoporderverification';
 import { CreateInternals } from './components/CreateInternals';
 import { Purchasesummary } from './components/Purchasesummary';
 import { CaptureInternals } from './components/CaptureInternals';
+import { Banking } from './components/Banking';
 
 class App extends Component {
 
@@ -342,6 +343,11 @@ class App extends Component {
     this.setState({"route":"CaptureInternals"})
   }
 
+  bankingclick=()=>{
+    console.log("pri")
+    this.setState({"route":"Banking"})
+  }
+
   
 
 
@@ -357,7 +363,7 @@ class App extends Component {
       <Header />
       <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick}
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick}
@@ -381,7 +387,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick}
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick}
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} 
@@ -404,7 +410,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick}
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} 
@@ -428,7 +434,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick}
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} 
@@ -452,7 +458,7 @@ class App extends Component {
       <Header />
       <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick}
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
@@ -475,7 +481,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick}
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
@@ -498,7 +504,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick}
        deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
@@ -520,7 +526,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
        salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick} 
-       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+       bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
       sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
       gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
       deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
@@ -547,7 +553,7 @@ class App extends Component {
       batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
       loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick}
       balancingclick = {this.balancingclick} salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}
-      stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} />
+      stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} bankingclick={this.bankingclick}  />
          <Main>
           <Buyer sellingPointsData={this.state.sellingPointsData} buyersData={this.state.buyersData}/>
         </Main>
@@ -559,7 +565,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
          salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick} 
-         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
         sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
         gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
@@ -581,7 +587,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
          salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
         sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
         gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
@@ -601,7 +607,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
          salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
         sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
         gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
@@ -624,7 +630,7 @@ class App extends Component {
         <Header />
         <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
          salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} capinternalsclick={this.capinternalsclick}
-         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} 
+         bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} bankingclick={this.bankingclick} 
         sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick} 
         gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick} 
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
@@ -653,7 +659,8 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
         balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}
-        stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick}/>
+        stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} 
+        bankingclick={this.bankingclick} />
          <Main>
           <Deliverynotes deliveryNoteData={this.state.deliveryNoteData} growerDeliveryNoteData={this.state.growerDeliveryNoteData}/>
          </Main>
@@ -675,7 +682,8 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
         balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}
-        stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick}/>
+        stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} 
+        bankingclick={this.bankingclick} />
          <Main>
           <Balereceiving />
          </Main>
@@ -694,7 +702,7 @@ class App extends Component {
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
         balancingclick = {this.balancingclick}  salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick}
-        stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick}/>
+        stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} bankingclick={this.bankingclick} />
          <Main>
           <Tickets ticketsData={this.state.ticketsData}/>
          </Main>
@@ -713,7 +721,7 @@ class App extends Component {
         batchingclick={this.batchingclick}  floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
          ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} salesclick = {this.salesclick} 
-         salesbatchingclick={this.salesbatchingclick} 
+         salesbatchingclick={this.salesbatchingclick} bankingclick={this.bankingclick} 
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
           <Ticketbatching ticketsBatchingData={this.state.ticketsBatchingData} batchingclick = {this.batchingclick}/>
@@ -732,7 +740,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick} 
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
+         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick} 
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
@@ -752,7 +760,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick}
-         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
+         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick} 
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
@@ -781,7 +789,7 @@ class App extends Component {
         deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick} 
         batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
         loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
+         ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick} 
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} internalsclick={this.internalsclick}/>
          <Main>
           <Scale />
@@ -800,7 +808,7 @@ class App extends Component {
                      deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
+                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick} 
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
@@ -820,7 +828,7 @@ class App extends Component {
                      deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
+                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick} 
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
@@ -840,7 +848,7 @@ class App extends Component {
                      deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} 
+                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick} 
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
@@ -860,7 +868,7 @@ class App extends Component {
                        deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                        batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                        loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                        ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  
+                        ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick}  
                         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
               <Main>
@@ -880,7 +888,7 @@ class App extends Component {
                        deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                        batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                        loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                        ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  
+                        ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  bankingclick={this.bankingclick} 
                         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
               <Main>
@@ -900,7 +908,7 @@ class App extends Component {
                        deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                        batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                        loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                        ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  
+                        ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick}   
                         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
               <Main>
@@ -921,7 +929,7 @@ class App extends Component {
                      deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  
+                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick}  
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
@@ -941,11 +949,31 @@ class App extends Component {
                      deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
                      batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
                      loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
-                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  
+                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick} bankingclick={this.bankingclick}  
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
               <CaptureInternals />
+            </Main>
+          </>
+      );
+    }else if(this.state.route==="Banking") {
+      return (
+          <>
+            <Header />
+            <SideBar onclick={this.onclick} homeclick={this.homeclick} filesclick={this.filesclick}
+                     salesrunclick={this.salesrunclick} growerregclick={this.growerregclick} purchasesclick={this.purchasesclick}
+                     bookingclick={this.bookingclick} stoporderproclick={this.stoporderproclick} capinternalsclick={this.capinternalsclick}
+                     sellingpointclick={this.sellingpointclick} buyerclick={this.buyerclick} usersclick={this.usersclick}
+                     gradesclick={this.gradesclick} backupclick={this.backupclick} parametersclick={this.parametersclick}
+                     deliveriesclick={this.deliveriesclick} balereceivingclick={this.balereceivingclick} ticketsclick={this.ticketsclick}
+                     batchingclick={this.batchingclick} floorsummaryclick={this.floorsummaryclick} dispatchclick={this.dispatchclick}
+                     loginclick={this.loginclick} scaleclick={this.scaleclick} capturebalepriceclick={this.capturebalepriceclick} 
+                      ticketsData={this.state.ticketsData} balancingclick = {this.balancingclick}  bankingclick={this.bankingclick} 
+                      salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} 
+                      internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
+            <Main>
+              <Banking />
             </Main>
           </>
       );
