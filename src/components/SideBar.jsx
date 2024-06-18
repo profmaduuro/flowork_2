@@ -269,17 +269,11 @@ const SideBar=(props)=> {
                 <span>Banking</span>
                 </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.paymentclick}>
+                    <Link to="/Payments">
                         <i className='bi bi-circle'></i>
                 <span>Payments</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className='bi bi-circle'></i>
-                <span>QuickAcc</span>
-                </a>
+                </Link>
                 </li>
             </ul>
         </li>
