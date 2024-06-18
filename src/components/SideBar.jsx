@@ -257,17 +257,11 @@ const SideBar=(props)=> {
                 <span>Purchase Summary</span>
                 </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.capinternalsclick}>
+                    <Link to="/CaptureInternals">
                         <i className='bi bi-circle'></i>
                 <span>Capture Internal Stoporders</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className='bi bi-circle'></i>
-                <span>Stoporder Batching</span>
-                </a>
+                </Link>
                 </li>
                 <li>
                     <a href="#">
