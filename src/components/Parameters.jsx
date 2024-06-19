@@ -146,7 +146,7 @@ const Parameters = (props) => {
       </div>
 
       <div className="modal fade" id="example2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Configure Parameters</h5>
@@ -171,155 +171,10 @@ const Parameters = (props) => {
                     </div>
                     </form>
                 </div>
-                <div className='table-responsive'>
-                    <table className='table table-striped table-hover table-bordered'>
-                        <thead>
-                            <tr>
-                                <th>Statutory</th>
-                                <th>Amount/Value</th>
-                                <th>Charge Type</th>
-                                 <th>Priority</th>
-                                 <th>On/Off</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Afforestration</td>
-                                <td><input type="text" id="afforestration_charge"/></td>
-                                <td><select name="" id="afforestration_charge_type">
-                                    {
-                                        props.chargeTypeData.map((u,i)=>{
-                                            return(
-                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
-                                            )
-                                        })
-                                    }
 
-                                    </select></td>
-                                <td><div className='col-xs-2'>
-                                <input type="number" className='form-control' id="afforestration_priority"/>
-                                    </div></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' id="afforestration_on_of"/>
-                                    </div></td>
-                            </tr>
-                            <tr>
-                                <td>Weighing & Auction</td>
-                                <td><input type="text" id="weighing_and_auction_charge"/></td>
-                                <td><select name="" id="weighing_and_auction_charge_type">
-                                    {
-                                        props.chargeTypeData.map((u,i)=>{
-                                            return(
-                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
-                                            )
-                                        })
-                                    }
-                                </select></td>
-                                <td><div className='col-xs-2'>
-                                    <input type="number" className='form-control' id="weighing_and_auction_priority"/>
-                                </div></td>
-                                <td><div  className='form-check form-switch'>
-                                    <input type='checkbox' className='form-check-input' role='switch' id="weighing_and_auction_on_of"/>
-                                </div></td>
-                            </tr>
-                            <tr>
-                                <td>Floor Commission</td>
-                                <td><input type="text" id="floor_commission_charge"/></td>
-                                <td><select name="" id="floor_commission_charge_type">
-                                    {
-                                        props.chargeTypeData.map((u,i)=>{
-                                            return(
-                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
-                                            )
-                                        })
-                                    }
-                                </select></td>
-                                <td><div className='col-xs-2'>
-                                    <input type="number" className='form-control' id="floor_commission_priority"/>
-                                </div></td>
-                                <td><div  className='form-check form-switch'>
-                                    <input type='checkbox' className='form-check-input' role='switch' id="floor_commission_on_of"/>
-                                </div></td>
-                            </tr>
-                            <tr>
-                                <td>Service Charge</td>
-                                <td><input type="text" id="service_charge_charge"/></td>
-                                <td><select name="" id="service_charge_charge_type">
-                                    {
-                                        props.chargeTypeData.map((u,i)=>{
-                                            return(
-                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
-                                            )
-                                        })
-                                    }
-                                </select></td>
-                                <td><div className='col-xs-2'>
-                                    <input type="number" className='form-control' id="service_charge_priority"/>
-                                </div></td>
-                                <td><div  className='form-check form-switch'>
-                                    <input type='checkbox' className='form-check-input' role='switch' id="service_charge_on_of"/>
-                                </div></td>
-                            </tr>
-                            <tr>
-                                <td>MOA</td>
-                                <td><input type="text" id="moa_usd_charge"/></td>
-                                <td><select name="" id="moa_usd_charge_type">
-                                    {
-                                        props.chargeTypeData.map((u,i)=>{
-                                            return(
-                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
-                                            )
-                                        })
-                                    }
-                                </select></td>
-                                <td><div className='col-xs-2'>
-                                    <input type="number" className='form-control' id="moa_usd_priority"/>
-                                </div></td>
-                                <td><div  className='form-check form-switch'>
-                                    <input type='checkbox' className='form-check-input' role='switch' id="moa_usd_on_of"/>
-                                </div></td>
-                            </tr>
-                            <tr>
-                                <td>MOA</td>
-                                <td><input type="text" id="moa_zig_charge"/></td>
-                                <td><select name="" id="moa_zig_charge_type">
-                                    {
-                                        props.chargeTypeData.map((u,i)=>{
-                                            return(
-                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
-                                            )
-                                        })
-                                    }
-                                </select></td>
-                                <td><div className='col-xs-2'>
-                                    <input type="number" className='form-control' id="moa_zig_priority"/>
-                                </div></td>
-                                <td><div  className='form-check form-switch'>
-                                    <input type='checkbox' className='form-check-input' role='switch' id="moa_zig_on_of"/>
-                                </div></td>
-                            </tr>
-                            <tr>
-                                <td>Bank Charge</td>
-                                <td><input type="text" id="bank_charge_charge"/></td>
-                                <td><select name="" id="bank_charge_charge_type">
-                                    {
-                                        props.chargeTypeData.map((u,i)=>{
-                                            return(
-                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
-                                            )
-                                        })
-                                    }
-                                </select></td>
-                                <td><div className='col-xs-2'>
-                                    <input type="number" className='form-control' id="bank_charge_priority"/>
-                                </div></td>
-                                <td><div  className='form-check form-switch'>
-                                    <input type='checkbox' className='form-check-input' role='switch' id="bank_charge_on_of"/>
-                                </div></td>
-                            </tr>
-                        </tbody>
 
-                    </table>
+                    </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
