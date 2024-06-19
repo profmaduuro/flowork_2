@@ -220,9 +220,9 @@ const Parameters = (props) => {
                 </div>
 
 
-                    </div>
+            </div>
                 
-                </div>
+        </div>
                 
       </div>
 
