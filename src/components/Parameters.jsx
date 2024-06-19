@@ -146,7 +146,7 @@ const Parameters = (props) => {
       </div>
 
       <div className="modal fade" id="example2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Configure Parameters</h5>
@@ -171,6 +171,7 @@ const Parameters = (props) => {
                     </div>
                     </form>
                 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <div className='table-responsive'>
                     <table className='table table-striped table-hover table-bordered'>
@@ -320,6 +321,9 @@ const Parameters = (props) => {
                             </tr>
                         </tbody>
 =======
+=======
+                <div>
+>>>>>>> 1963b08a8986c3b1519fae82d7dbcf9ec13f6b48
                 <div className='card_10'>
                     <form action="">
                     <div className='row'>
@@ -355,17 +359,27 @@ const Parameters = (props) => {
                         <input name="" id="" className='form-control' type='number'/>
                             
                         </div>
+<<<<<<< HEAD
 >>>>>>> 84d9cda51b977887e8f2428c64f60fff1fd1f76b
+=======
+>>>>>>> 1963b08a8986c3b1519fae82d7dbcf9ec13f6b48
 
                     </div>
                     </form>
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+
                 </div>
+
+
+                    </div>
+                
                 </div>
-            </div>
+                
       </div>
 
       <div className="modal fade" id="example3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
