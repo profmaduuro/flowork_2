@@ -2,6 +2,40 @@ import React from 'react'
 import './parameters.css'
 
 const Parameters = (props) => {
+
+    const createAfforestration=()=>{
+
+        var selling_pointid = document.getElementById("selling_pointid").value;
+        var afforestration_charge = document.getElementById("afforestration_charge").value;
+        var afforestration_charge_type = document.getElementById("afforestration_charge_type").value;
+        var afforestration_priority = document.getElementById("afforestration_priority").value;
+        var afforestration_on_of = document.getElementById("afforestration_on_of").value;
+
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                selling_pointid: selling_pointid,
+                //statutoryid: ,
+                charge_typeid: afforestration_charge_type,
+                // amount:date,
+                // creditor_no:growerid,
+                userid: 1
+            })
+        };
+
+
+        fetch('http://localhost/king/api/balance_bales.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data)
+            })
+    }
+
+
   return (
     <div>
         <a href="/">
@@ -42,55 +76,20 @@ const Parameters = (props) => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Weighing & Auction</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Afforestration</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Floor Commission</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>MOA Levy</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>MOA Levy</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Service Charge</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Bank Charge</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
+
+            {
+                props.statutoryValueData.map((u,i)=>{
+                    return(
+                        <tr >
+                            <td>Weighing & Auction</td>
+                            <td>Bale</td>
+                            <td>2</td>
+                            <td>7.5</td>
+                            <td>Vision Leaf Tobacco</td>
+                        </tr>
+                    )
+                })
+            }
             </tbody>
 
         </table>
@@ -157,10 +156,17 @@ const Parameters = (props) => {
                     <form>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Select Company:</label>
-                        <select type="text" class="form-control" id="recipient-name" >
+                        <select type="text" class="form-control"  id="selling_pointid">
                             <option value="">Select Company</option>
-                            <option value="">Vision Leaf</option>
-                            <option value="">Horizon</option>
+                            {
+                                props.sellingPointsData.map((u,i)=>{
+                                    return(
+                                            <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                        )
+
+                                })
+                            }
+
                         </select>
                     </div>
                     </form>
@@ -170,8 +176,8 @@ const Parameters = (props) => {
                         <thead>
                             <tr>
                                 <th>Statutory</th>
-                                <th>Charge</th>
-                                <th>Place</th>
+                                <th>Amount/Value</th>
+                                <th>Charge Type</th>
                                  <th>Priority</th>
                                  <th>On/Off</th>
                             </tr>
@@ -179,117 +185,137 @@ const Parameters = (props) => {
                         <tbody>
                             <tr>
                                 <td>Afforestration</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
+                                <td><input type="text" id="afforestration_charge"/></td>
+                                <td><select name="" id="afforestration_charge_type">
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+
                                     </select></td>
                                 <td><div className='col-xs-2'>
-                                <input type="number" className='form-control' />
+                                <input type="number" className='form-control' id="afforestration_priority"/>
                                     </div></td>
                                 <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
+                                <input type='checkbox' className='form-check-input' role='switch' id="afforestration_on_of"/>
                                     </div></td>
                             </tr>
                             <tr>
                                 <td>Weighing & Auction</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
+                                <td><input type="text" id="weighing_and_auction_charge"/></td>
+                                <td><select name="" id="weighing_and_auction_charge_type">
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+                                </select></td>
+                                <td><div className='col-xs-2'>
+                                    <input type="number" className='form-control' id="weighing_and_auction_priority"/>
+                                </div></td>
                                 <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
+                                    <input type='checkbox' className='form-check-input' role='switch' id="weighing_and_auction_on_of"/>
+                                </div></td>
                             </tr>
                             <tr>
                                 <td>Floor Commission</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-xs-2' /></td>
+                                <td><input type="text" id="floor_commission_charge"/></td>
+                                <td><select name="" id="floor_commission_charge_type">
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+                                </select></td>
+                                <td><div className='col-xs-2'>
+                                    <input type="number" className='form-control' id="floor_commission_priority"/>
+                                </div></td>
                                 <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
+                                    <input type='checkbox' className='form-check-input' role='switch' id="floor_commission_on_of"/>
+                                </div></td>
                             </tr>
                             <tr>
                                 <td>Service Charge</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
+                                <td><input type="text" id="service_charge_charge"/></td>
+                                <td><select name="" id="service_charge_charge_type">
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+                                </select></td>
+                                <td><div className='col-xs-2'>
+                                    <input type="number" className='form-control' id="service_charge_priority"/>
+                                </div></td>
                                 <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
+                                    <input type='checkbox' className='form-check-input' role='switch' id="service_charge_on_of"/>
+                                </div></td>
                             </tr>
                             <tr>
                                 <td>MOA</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
+                                <td><input type="text" id="moa_usd_charge"/></td>
+                                <td><select name="" id="moa_usd_charge_type">
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+                                </select></td>
+                                <td><div className='col-xs-2'>
+                                    <input type="number" className='form-control' id="moa_usd_priority"/>
+                                </div></td>
                                 <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
+                                    <input type='checkbox' className='form-check-input' role='switch' id="moa_usd_on_of"/>
+                                </div></td>
                             </tr>
                             <tr>
                                 <td>MOA</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
+                                <td><input type="text" id="moa_zig_charge"/></td>
+                                <td><select name="" id="moa_zig_charge_type">
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+                                </select></td>
+                                <td><div className='col-xs-2'>
+                                    <input type="number" className='form-control' id="moa_zig_priority"/>
+                                </div></td>
                                 <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
+                                    <input type='checkbox' className='form-check-input' role='switch' id="moa_zig_on_of"/>
+                                </div></td>
                             </tr>
                             <tr>
                                 <td>Bank Charge</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
+                                <td><input type="text" id="bank_charge_charge"/></td>
+                                <td><select name="" id="bank_charge_charge_type">
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+                                </select></td>
+                                <td><div className='col-xs-2'>
+                                    <input type="number" className='form-control' id="bank_charge_priority"/>
+                                </div></td>
                                 <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
+                                    <input type='checkbox' className='form-check-input' role='switch' id="bank_charge_on_of"/>
+                                </div></td>
                             </tr>
                         </tbody>
 
@@ -316,8 +342,14 @@ const Parameters = (props) => {
                         <label for="recipient-name" class="col-form-label">Select Company:</label>
                         <select type="text" class="form-control" id="recipient-name" >
                             <option value="">Select Company</option>
-                            <option value="">Vision Leaf</option>
-                            <option value="">Horizon</option>
+                            {
+                                props.sellingPointsData.map((u,i)=>{
+                                    return(
+                                        <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                    )
+
+                                })
+                            }
                         </select>
                     </div>
                     </form>
