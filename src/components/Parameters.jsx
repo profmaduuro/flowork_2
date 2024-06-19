@@ -147,7 +147,7 @@ const Parameters = (props) => {
       </div>
 
       <div className="modal fade" id="example2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Configure Parameters</h5>
@@ -165,135 +165,44 @@ const Parameters = (props) => {
                     </div>
                     </form>
                 </div>
-                <div className='table-responsive'>
-                    <table className='table table-striped table-hover table-bordered'>
-                        <thead>
-                            <tr>
-                                <th>Statutory</th>
-                                <th>Charge</th>
-                                <th>Place</th>
-                                 <th>Priority</th>
-                                 <th>On/Off</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Afforestration</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                <td><div className='col-xs-2'>
-                                <input type="number" className='form-control' />
-                                    </div></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
-                            </tr>
-                            <tr>
-                                <td>Weighing & Auction</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
-                            </tr>
-                            <tr>
-                                <td>Floor Commission</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-xs-2' /></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
-                            </tr>
-                            <tr>
-                                <td>Service Charge</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
-                            </tr>
-                            <tr>
-                                <td>MOA</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
-                            </tr>
-                            <tr>
-                                <td>MOA</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
-                            </tr>
-                            <tr>
-                                <td>Bank Charge</td>
-                                <td><input type="text" /></td>
-                                <td><select name="" id="">
-                                    <option value="">Value</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Mass & Value</option>
-                                    <option value="">Net Value</option>
-                                    <option value="">Stoporder Amount</option>
-                                    </select></td>
-                                    <td><input type="number" className='col-sm' /></td>
-                                <td><div  className='form-check form-switch'>
-                                <input type='checkbox' className='form-check-input' role='switch' />
-                                    </div></td>
-                            </tr>
-                        </tbody>
+                <div className='card_10'>
+                    <form action="">
+                    <div className='row'>
+                        <div className='col'>
+                        <label htmlFor="">Statutory</label>
+                        <select name="" id="" className='form-control'>
+                            <option value="">Select Statutory</option>
+                            <option value="">Afforestration</option>
+                            <option value="">MOA</option>
+                            <option value="">MOA</option>
+                            <option value="">Weighing & Auction</option>
+                            <option value="">Floor Commission</option>
+                            <option value="">Service Charge</option>
+                            <option value="">Bank Charge</option>
+                        </select>
+                        </div>
+                        <div className='col'>
+                        <label htmlFor="">Amount/Value</label>
+                        <input name="" id="" className='form-control' type='text'/>
+                        </div>
+                        <div className='col'>
+                        <label htmlFor="">Charge Type</label>
+                        <select name="" id="" className='form-control'>
+                            <option value="">Select Charge Type</option>
+                            <option value="">Mass</option>
+                            <option value="">Value</option>
+                            <option value="">Bales</option>
+                            <option value="">Mass & Value</option>
+                        </select>
+                        </div>
+                        <div className='col'>
+                        <label htmlFor="">Priority</label>
+                        <input name="" id="" className='form-control' type='number'/>
+                            
+                        </div>
 
-                    </table>
+                    </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

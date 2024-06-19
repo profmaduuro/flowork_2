@@ -8,7 +8,7 @@ export const Payments = (props) => {
                     <i className='bi bi-house-door'></i>
                 </a>
 
-            <h3>Banking</h3>
+            <h3>Payments</h3>
 
         </div>
 

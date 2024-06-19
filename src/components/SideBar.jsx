@@ -68,12 +68,7 @@ const SideBar=(props)=> {
                 <span>Grower Booking</span>
                 </Link>
                 </li>
-                <li onClick={props.stoporderproclick}>
-                    <Link to="/StopOrderProcess">
-                        <i className='bi bi-circle'></i>
-                <span>Stoporder Processing</span>
-                </Link>
-                </li>
+                
             </ul>
         </li>
 
@@ -221,6 +216,12 @@ const SideBar=(props)=> {
 
             <ul id='stoporder-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
+                <li onClick={props.stoporderproclick}>
+                    <Link to="/StopOrderProcess">
+                        <i className='bi bi-circle'></i>
+                <span>Stoporder Processing</span>
+                </Link>
+                </li>
                 <li onClick={props.stoprderverifyclick}>
                     <Link to="/Stoporderverification">
                         <i className='bi bi-circle'></i>
@@ -233,6 +234,7 @@ const SideBar=(props)=> {
                 <span>Create Internal Stoporders</span>
                 </Link>
                 </li>
+
             </ul>
         </li>
 
