@@ -146,7 +146,7 @@ const Parameters = (props) => {
       </div>
 
       <div className="modal fade" id="example2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Configure Parameters</h5>
@@ -171,17 +171,59 @@ const Parameters = (props) => {
                     </div>
                     </form>
                 </div>
-
+                <div>
+                <div className='card_10'>
+                    <form action="">
+                    <div className='row'>
+                        <div className='col'>
+                        <label htmlFor="">Statutory</label>
+                        <select name="" id="" className='form-control'>
+                            <option value="">Select Statutory</option>
+                            <option value="">Afforestration</option>
+                            <option value="">MOA</option>
+                            <option value="">MOA</option>
+                            <option value="">Weighing & Auction</option>
+                            <option value="">Floor Commission</option>
+                            <option value="">Service Charge</option>
+                            <option value="">Bank Charge</option>
+                        </select>
+                        </div>
+                        <div className='col'>
+                        <label htmlFor="">Amount/Value</label>
+                        <input name="" id="" className='form-control' type='text'/>
+                        </div>
+                        <div className='col'>
+                        <label htmlFor="">Charge Type</label>
+                        <select name="" id="" className='form-control'>
+                            <option value="">Select Charge Type</option>
+                            <option value="">Mass</option>
+                            <option value="">Value</option>
+                            <option value="">Bales</option>
+                            <option value="">Mass & Value</option>
+                        </select>
+                        </div>
+                        <div className='col'>
+                        <label htmlFor="">Priority</label>
+                        <input name="" id="" className='form-control' type='number'/>
+                            
+                        </div>
 
                     </div>
                     </form>
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+
                 </div>
+
+
+                    </div>
+                
                 </div>
-            </div>
+                
       </div>
 
       <div className="modal fade" id="example3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
