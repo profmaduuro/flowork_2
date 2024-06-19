@@ -2,6 +2,40 @@ import React from 'react'
 import './parameters.css'
 
 const Parameters = (props) => {
+
+    const createAfforestration=()=>{
+
+        var selling_pointid = document.getElementById("selling_pointid").value;
+        var afforestration_charge = document.getElementById("afforestration_charge").value;
+        var afforestration_charge_type = document.getElementById("afforestration_charge_type").value;
+        var afforestration_priority = document.getElementById("afforestration_priority").value;
+        var afforestration_on_of = document.getElementById("afforestration_on_of").value;
+
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                selling_pointid: selling_pointid,
+                //statutoryid: ,
+                charge_typeid: afforestration_charge_type,
+                // amount:date,
+                // creditor_no:growerid,
+                userid: 1
+            })
+        };
+
+
+        fetch('http://localhost/king/api/balance_bales.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data)
+            })
+    }
+
+
   return (
     <div>
         <a href="/">
@@ -42,55 +76,20 @@ const Parameters = (props) => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Weighing & Auction</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Afforestration</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Floor Commission</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>MOA Levy</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>MOA Levy</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Service Charge</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
-                <tr>
-                    <td>Bank Charge</td>
-                    <td>Bale</td>
-                    <td>2</td>
-                    <td>7.5</td>
-                    <td>Vision Leaf Tobacco</td>
-                </tr>
+
+            {
+                props.statutoryValueData.map((u,i)=>{
+                    return(
+                        <tr >
+                            <td>Weighing & Auction</td>
+                            <td>Bale</td>
+                            <td>2</td>
+                            <td>7.5</td>
+                            <td>Vision Leaf Tobacco</td>
+                        </tr>
+                    )
+                })
+            }
             </tbody>
 
         </table>
@@ -157,49 +156,22 @@ const Parameters = (props) => {
                     <form>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Select Company:</label>
-                        <select type="text" class="form-control" id="recipient-name" >
+                        <select type="text" class="form-control"  id="selling_pointid">
                             <option value="">Select Company</option>
-                            <option value="">Vision Leaf</option>
-                            <option value="">Horizon</option>
+                            {
+                                props.sellingPointsData.map((u,i)=>{
+                                    return(
+                                            <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                        )
+
+                                })
+                            }
+
                         </select>
                     </div>
                     </form>
                 </div>
-                <div className='card_10'>
-                    <form action="">
-                    <div className='row'>
-                        <div className='col'>
-                        <label htmlFor="">Statutory</label>
-                        <select name="" id="" className='form-control'>
-                            <option value="">Select Statutory</option>
-                            <option value="">Afforestration</option>
-                            <option value="">MOA</option>
-                            <option value="">MOA</option>
-                            <option value="">Weighing & Auction</option>
-                            <option value="">Floor Commission</option>
-                            <option value="">Service Charge</option>
-                            <option value="">Bank Charge</option>
-                        </select>
-                        </div>
-                        <div className='col'>
-                        <label htmlFor="">Amount/Value</label>
-                        <input name="" id="" className='form-control' type='text'/>
-                        </div>
-                        <div className='col'>
-                        <label htmlFor="">Charge Type</label>
-                        <select name="" id="" className='form-control'>
-                            <option value="">Select Charge Type</option>
-                            <option value="">Mass</option>
-                            <option value="">Value</option>
-                            <option value="">Bales</option>
-                            <option value="">Mass & Value</option>
-                        </select>
-                        </div>
-                        <div className='col'>
-                        <label htmlFor="">Priority</label>
-                        <input name="" id="" className='form-control' type='number'/>
-                            
-                        </div>
+
 
                     </div>
                     </form>
@@ -225,8 +197,14 @@ const Parameters = (props) => {
                         <label for="recipient-name" class="col-form-label">Select Company:</label>
                         <select type="text" class="form-control" id="recipient-name" >
                             <option value="">Select Company</option>
-                            <option value="">Vision Leaf</option>
-                            <option value="">Horizon</option>
+                            {
+                                props.sellingPointsData.map((u,i)=>{
+                                    return(
+                                        <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                    )
+
+                                })
+                            }
                         </select>
                     </div>
                     </form>

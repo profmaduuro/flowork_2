@@ -1,7 +1,64 @@
 import React from 'react'
 
 export const CreateInternals = (props) => {
-  return (
+
+    const saveStopOrder=()=>{
+
+        const amount = document.getElementById("amount").value
+        const description = document.getElementById("description").value
+        const creditor_number = document.getElementById("creditor_number").value
+        const charge_typeid = document.getElementById("charge_type").value
+
+        const priority = document.getElementById("priority").value
+        const selling_pointid = document.getElementById("selling_point").value
+
+        if (amount.trim()!=="") {
+            const d = new Date();
+            let date = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
+
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    userid: 1,
+                    amount: amount,
+                    description: description,
+                    creditor_number:creditor_number,
+                    charge_typeid:charge_typeid,
+                    priority: priority,
+                    selling_pointid:selling_pointid,
+                    created_at:""
+                })
+            };
+
+
+            fetch('http://localhost/king/api/create_internal_stop_order.php', requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data[0])
+                    if (data[0].response === "success") {
+
+                        console.log(data[0])
+                        // document.getElementById("barcode").value = ""
+                        // document.getElementById("group").value = ""
+                        // document.getElementById("lot").value = ""
+                        // document.getElementById("junused").innerText = data[0].junused_bales
+                        //
+
+                    } else {
+                       // document.getElementById("response").innerText = data[0].response
+                    }
+                });
+        }else {
+            //document.getElementById("response").innerText = " Capture Barcode"
+        }
+
+    }
+
+
+
+
+    return (
     <div>
         <div className=''>
             <a href="/home">
@@ -59,78 +116,22 @@ export const CreateInternals = (props) => {
                         <th>Amount</th>
                     </thead><br />
                     <tbody>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                            <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
-                        <tr data-bs-toggle="modal" data-bs-target="#example2">
-                        <td>Hessian</td>
-                            <td>1235</td>
-                            <td>Vision Leaf Tobacco</td>
-                            <td>2024</td>
-                            <td>8</td>
-                            <td>10.00</td>
-                        </tr>
+
+                    {
+                        props.internalStopOrdersData.map((u,i)=>{
+                            return(
+                                <tr data-bs-toggle="modal" data-bs-target="#example2">
+                                    <td>{props.internalStopOrdersData[i].description}</td>
+                                    <td>{props.internalStopOrdersData[i].creditor_number}</td>
+                                    <td>{props.internalStopOrdersData[i].selling_point}</td>
+                                    <td>{props.internalStopOrdersData[i].season}</td>
+                                    <td>{props.internalStopOrdersData[i].priority}</td>
+                                    <td>{props.internalStopOrdersData[i].amount}</td>
+                                </tr>
+                            )
+                        })
+                    }
+
 
                     </tbody>
                 </table>
@@ -154,35 +155,57 @@ export const CreateInternals = (props) => {
                             <div className='row' >
                                 <div className='col'>
                                     <label htmlFor="">Name</label>
-                                    <input type="text" id='' className='form-control' />
+                                    <input type="text" id='description' className='form-control' />
                                 </div>
                                 <div className='col'>
                                     <label htmlFor="">Internal Creditor #</label>
-                                    <input type="text" id='' className='form-control' />
+                                    <input type="text" id='creditor_number' className='form-control' />
                                 </div>
                             </div>
                             <br />
                             <div className='row' >
                                 <div className='col'>
                                     <label htmlFor="">Priority</label>
-                                    <input type="number" id='' className='form-control' />
+                                    <input type="number" id='priority' className='form-control' />
                                 </div>
                                 <div className='col'>
                                     <label htmlFor="">Amount</label>
-                                    <input type="decimal" id='' className='form-control' />
+                                    <input type="decimal" id='amount' className='form-control' />
                                 </div>
                             </div><br />
                             <div className='row'>
                                 <div className='col'>
                                 <label htmlFor="">Charge Type</label>
-                                <select name="" id="" className='form-control'>
+                                <select name="" id="charge_type" className='form-control'>
                                     <option value="">Select Type</option>
-                                    <option value="">Mass</option>
-                                    <option value="">Bales</option>
-                                    <option value="">Value</option>
+                                    {
+                                        props.chargeTypeData.map((u,i)=>{
+                                            return(
+                                                <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                            )
+                                        })
+                                    }
+
                                 </select>
 
                                 </div>
+
+                                <div className='col'>
+                                    <label htmlFor="">Selling Point</label>
+                                    <select name="" id="selling_point" className='form-control'>
+                                        <option value="">Select Type</option>
+                                        {
+                                            props.sellingPointsData.map((u,i)=>{
+                                                return(
+                                                    <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                                )
+                                            })
+                                        }
+
+                                    </select>
+
+                                </div>
+
                                 {/* <div className='col'>
                                     <label htmlFor="">Quantity</label>
                                     <input type="number" className='form-control' />
@@ -195,7 +218,7 @@ export const CreateInternals = (props) => {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onClick={saveStopOrder}>Submit</button>
                     </div>
                     </div>
                 </div>

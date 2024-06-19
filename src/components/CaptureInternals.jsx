@@ -4,8 +4,41 @@ export const CaptureInternals = (props) => {
     let splitid=0;
     let transporter_growersid=0;
     let growerid=0;
+    let mySplit_transporter_growers_ids=0
 
     const createSaleStopOrder=(event)=>{
+
+        const internal_stop_order_amountid=document.getElementById("stop_orders").value
+        const quantity=document.getElementById("stop_order_quantity").value
+
+        splitid=mySplit_transporter_growers_ids.split(",")[0]
+        transporter_growersid=mySplit_transporter_growers_ids.split(",")[1]
+        growerid=mySplit_transporter_growers_ids.split(",")[2]
+
+        console.log(transporter_growersid)
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: transporter_growersid,
+                splitid: splitid,
+                internal_stop_order_amountid:internal_stop_order_amountid,
+                quantity:quantity,
+                userid: 1
+            })
+        };
+
+        fetch('http://localhost/king/api/create_split_internal_stop_order.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+
+                console.log("lots data "+data)
+
+                getDeductions(mySplit_transporter_growers_ids)
+
+            })
 
     }
 
@@ -14,9 +47,7 @@ export const CaptureInternals = (props) => {
     }
     const addStopOrder=(event)=>{
         //console.log(event.target.id,"ok id stoporders")
-        const mySplit_transporter_growers_ids=event.target.id
-
-
+        mySplit_transporter_growers_ids=event.target.id
 
 
         //const id=document.getElementById("id").value
@@ -25,24 +56,9 @@ export const CaptureInternals = (props) => {
         growerid=mySplit_transporter_growers_ids.split(",")[2]
 
 
-        var x = document.getElementById("tbody1");
+        var lots = document.getElementById("lots");
 
 
-        var tr =null;
-
-        var barcode=null;
-        var group=null;
-        var lot=null;
-        var mass=null;
-        var buyer_grade= null;
-        var timb_grade= null;
-        var price= null;
-
-        var sale_code= null;
-
-        while (x.hasChildNodes()) {
-            x.removeChild(x.firstChild);
-        }
 
 
         const requestOptions = {
@@ -61,9 +77,11 @@ export const CaptureInternals = (props) => {
 
                 console.log("lots data "+data)
                 let Arr = [];
+                let bales=0;
 
                 data.map((u,i)=>{
                     Arr.push(data[i].lot)
+                    bales++
                 })
 
                 let minValue = Math.min(...Arr);
@@ -71,10 +89,66 @@ export const CaptureInternals = (props) => {
                 console.log("Minimum element is:" + minValue);
                 console.log("Maximum Element is:" + maxValue);
 
+                lots.innerText=minValue+"-"+maxValue+" ("+bales+" bales)"
+                getDeductions(mySplit_transporter_growers_ids)
+
             })
 
 
-        fetch('http://localhost/king/api/get_bales_for_processing.php', requestOptions)
+    }
+
+    const captureStopOrder=()=>{
+
+    }
+
+
+
+
+
+    const getDeductions=(mySplit_transporter_growers_ids)=>{
+        //console.log(event.target.id,"ok id stoporders")
+        //const mySplit_transporter_growers_ids=event.target.id
+
+
+
+
+        //const id=document.getElementById("id").value
+        splitid=mySplit_transporter_growers_ids.split(",")[0]
+        transporter_growersid=mySplit_transporter_growers_ids.split(",")[1]
+        growerid=mySplit_transporter_growers_ids.split(",")[2]
+
+
+        var x = document.getElementById("tbody1");
+
+
+
+        var tr =null;
+
+        var grower=null;
+        var sale=null;
+        var internal=null;
+        var amount=null;
+        var quantity= null;
+        var delete_record=null
+
+
+        while (x.hasChildNodes()) {
+            x.removeChild(x.firstChild);
+        }
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: transporter_growersid,
+                splitid: splitid,
+                userid: 1
+            })
+        };
+
+
+        fetch('http://localhost/king/api/get_split_internal_stop_order.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data,"my new data")
@@ -102,42 +176,36 @@ export const CaptureInternals = (props) => {
 
 
 
-                        barcode = document.createElement("td");
-                        sale_code = document.createElement("td");
-                        group = document.createElement("td");
-                        lot = document.createElement("td");
-                        buyer_grade = document.createElement("td");
-                        timb_grade = document.createElement("td");
-                        price = document.createElement("td");
-                        mass = document.createElement("td");
 
-                        var barcodeData = document.createTextNode(data[i].barcode);
-                        var groupData = document.createTextNode(data[i].bale_group);
-                        var lotData = document.createTextNode(data[i].lot);
-                        var massData = document.createTextNode(data[i].mass);
 
-                        var timb_gradeData = document.createTextNode(data[i].timb_grade);
-                        var buyer_gradeData = document.createTextNode(data[i].buyer_grade);
-                        var priceData = document.createTextNode(data[i].price);
-                        var sale_codeData = document.createTextNode(data[i].sale_code);
+                        grower = document.createElement("td");
+                        sale = document.createElement("td");
+                        internal = document.createElement("td");
+                        amount = document.createElement("td");
+                        quantity = document.createElement("td");
 
-                        barcode.appendChild(barcodeData)
-                        group.appendChild(groupData)
-                        lot.appendChild(lotData)
-                        sale_code.appendChild(sale_codeData)
-                        buyer_grade.appendChild(buyer_gradeData)
-                        timb_grade.appendChild(timb_gradeData)
-                        price.appendChild(priceData)
-                        mass.appendChild(massData)
 
-                        tr.appendChild(barcode)
-                        tr.appendChild(sale_code)
-                        tr.appendChild(group)
-                        tr.appendChild(lot)
-                        tr.appendChild(buyer_grade)
-                        tr.appendChild(timb_grade)
-                        tr.appendChild(price)
-                        tr.appendChild(mass)
+
+                        var growerData = document.createTextNode(data[i].grower_num);
+                        var saleData = document.createTextNode(data[i].splitid);
+                        var internalData = document.createTextNode(data[i].description);
+                        var amountData = document.createTextNode(data[i].amount);
+                        var quantityData = document.createTextNode(data[i].quantity);
+
+                        grower.appendChild(growerData)
+                        sale.appendChild(saleData)
+                        internal.appendChild(internalData)
+                        amount.appendChild(amountData)
+                        quantity.appendChild(quantityData)
+
+
+                        tr.appendChild(grower)
+                        tr.appendChild(sale)
+                        tr.appendChild(internal)
+                        tr.appendChild(amount)
+                        tr.appendChild(quantity)
+
+
 
                         x.appendChild(tr)
                     }
@@ -152,7 +220,7 @@ export const CaptureInternals = (props) => {
 
 
 
-  return (
+    return (
     <div>
         <div className=''>
             <a href="/home">
@@ -245,7 +313,7 @@ export const CaptureInternals = (props) => {
                             </div>
                             <div className='col'>
                                 <h5>LOTS</h5>
-                                <h6><b>1,2,3,4,5</b></h6>
+                                <h5 ><b id="lots"></b></h5>
                             </div>
                                 
                                 
@@ -254,17 +322,24 @@ export const CaptureInternals = (props) => {
                          <div className='row'> 
                             <div className='col'>
                                <label htmlFor="">Stoporder</label>
-                               <select type="text" className='form-control'>
+                               <select type="text" id="stop_orders" className='form-control'>
                                 <option value="">Select Internal</option>
-                                <option value="">Hessian</option>
-                                <option value="">Transport</option>
-                                <option value="">Canteen</option>
-                                <option value="">Refund</option>
+
+                                   {
+
+                                       props.internalStopOrdersData.map((u,i)=>{
+                                           return(
+                                                   <option value={props.internalStopOrdersData[i].id}>{props.internalStopOrdersData[i].description}</option>
+                                               )
+
+                                       })
+                                   }
+
                                </select>
                             </div>
                             <div className='col'>
                                <label htmlFor="">Quantity</label>
-                               <input type="number" className='form-control'/>
+                               <input type="number" id="stop_order_quantity" className='form-control'/>
                             </div>
                             {/* <div className='col'>
                                <label htmlFor="">ID</label>
@@ -288,10 +363,10 @@ export const CaptureInternals = (props) => {
                                <label htmlFor="">Last Lot</label>
                                <input type="text" className='form-control' />
                             </div> */}
->>>>>>> c85f267c77c83af86cc437b7802f1ddc929e4a50
+
                             <div className='col'>
                                <label htmlFor="">.</label>
-                               <button type="text" className='btn btn-primary'>Submit</button>
+                               <button type="text" className='btn btn-primary' onClick={createSaleStopOrder}>Submit</button>
                             </div>
                         </div>
                         <br />   
@@ -307,58 +382,11 @@ export const CaptureInternals = (props) => {
                                     <th>Sale</th>
                                     <th>Internal</th>
                                     <th>Amount</th>
+                                    <th>Quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbody1">
-                                     <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
-                                    <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
 
-                                    <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
-                                    <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
-                                    <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
-                                    <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
-                                    <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
-                                    <tr>
-                                        <td>V123456</td>
-                                        <td>1</td>
-                                        <td>Hessian</td>
-                                        <td>250</td>
-                                    </tr>
                                    
                                 </tbody>
 

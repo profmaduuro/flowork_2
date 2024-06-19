@@ -54,6 +54,7 @@ class App extends Component {
     super()
     this.state={
       "route":"",
+      "userid":0,
       "ticketsData":[],
       "growerDeliveryData":[],
       "ticketsBatchingData":[],
@@ -63,7 +64,10 @@ class App extends Component {
       "deliveryNoteData":[],
       "growerDeliveryNoteData":[],
       "balancingData":[],
-      "captureInternalsData":[]
+      "captureInternalsData":[],
+      "chargeTypeData":[],
+      "internalStopOrdersData":[],
+      "statutoryValueData":[]
 
     }
   }
@@ -196,7 +200,37 @@ class App extends Component {
 
   parametersclick=()=>{
 
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+    fetch('http://localhost/king/api/get_selling_points.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"sellingPointsData":data})
+        });
+
+    fetch('http://localhost/king/api/get_charges_type.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"chargeTypeData":data})
+        });
+
+    fetch('http://localhost/king/api/get_statutory_values.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"statutoryValueData":data})
+        });
+
+
+
     this.setState({"route":"Parameters"})
   }
 
@@ -331,7 +365,39 @@ class App extends Component {
   }
 
   internalsclick=()=>{
-    console.log("pri")
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://localhost/king/api/get_charges_type.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"chargeTypeData":data})
+        });
+
+
+    fetch('http://localhost/king/api/get_selling_points.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"sellingPointsData":data})
+        });
+
+    fetch('http://localhost/king/api/get_internal_stop_orders.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"internalStopOrdersData":data})
+        });
+
+
     this.setState({"route":"CreateInternals"})
   }
   
@@ -356,6 +422,14 @@ class App extends Component {
           console.log(data)
           this.setState({"captureInternalsData":data})
         });
+
+    fetch('http://localhost/king/api/get_internal_stop_orders.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"internalStopOrdersData":data})
+        });
+
     this.setState({"route":"CaptureInternals"})
   }
 
@@ -662,7 +736,7 @@ class App extends Component {
         internalsclick={this.internalsclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
         stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
-          <Parameters />
+          <Parameters chargeTypeData={this.state.chargeTypeData} sellingPointsData={this.state.sellingPointsData} statutoryValueData={this.state.statutoryValueData}/>
          </Main>
 
         
@@ -936,7 +1010,7 @@ class App extends Component {
                         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
               <Main>
-                <CreateInternals />
+                <CreateInternals chargeTypeData={this.state.chargeTypeData} sellingPointsData={this.state.sellingPointsData} internalStopOrdersData={this.state.internalStopOrdersData}/>
               </Main>
             </>
         );
@@ -977,7 +1051,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <CaptureInternals captureInternalsData={this.state.captureInternalsData}/>
+              <CaptureInternals captureInternalsData={this.state.captureInternalsData} internalStopOrdersData={this.state.internalStopOrdersData}/>
             </Main>
           </>
       );
