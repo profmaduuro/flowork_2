@@ -51,7 +51,7 @@ const Grades = (props) => {
                 };
 
 
-                fetch('http://localhost/king/api/create_timb_grades.php', requestOptions)
+                fetch('http://'+props.id_address+'/king/api/create_timb_grades.php', requestOptions)
                     .then(response => response.json())
                     .then(data => {
                         console.log(data[0].response,"Success")
@@ -74,7 +74,7 @@ const Grades = (props) => {
                 };
 
 
-                fetch('http://localhost/king/api/create_buyer_grades.php', requestOptions)
+                fetch('http://'+props.id_address+'/king/api/create_buyer_grades.php', requestOptions)
                     .then(response => response.json())
                     .then(data => {
                         console.log(data[0].response,"Success")

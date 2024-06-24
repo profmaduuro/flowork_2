@@ -22,7 +22,7 @@ const SalesRun = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/create_start_of_day.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/create_start_of_day.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data[0].response,"Success")

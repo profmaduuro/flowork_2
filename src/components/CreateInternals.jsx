@@ -32,7 +32,7 @@ export const CreateInternals = (props) => {
             };
 
 
-            fetch('http://localhost/king/api/create_internal_stop_order.php', requestOptions)
+            fetch('http://'+props.id_address+'/king/api/create_internal_stop_order.php', requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data[0])

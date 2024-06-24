@@ -1,7 +1,30 @@
 import React from 'react'
 
 const StopOrderProcess = (props) => {
-  return (
+    const  runStopOrder=()=> {
+
+        var selling_pointid = document.getElementById("selling_pointid").value;
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                selling_pointid: selling_pointid,
+                userid: 1
+            })
+        };
+
+
+        fetch('http://'+props.id_address+'/king/api/run_stop_orders.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+
+    }
+
+    return (
     <div>
       <a href="/home">
               <i className='bi bi-house-door'></i>
@@ -195,10 +218,17 @@ const StopOrderProcess = (props) => {
                    
                     <div class="inline">
                         <label for="recipient-name" class="col-form-label">Selling Point</label>
-                        <select type="date" class="form-control" id="">
+                        <select type="date" class="form-control" id="selling_pointid">
                             <option value="">Select Company</option>
-                            <option value="">VLT</option>
-                            <option value="">HLT</option>
+                            {
+                                props.sellingPointsData.map((u,i)=>{
+                                    return(
+                                            <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                        )
+
+                                })
+                            }
+
                         </select>
                         <br />
                         {/* <label for="recipient-name" class="col-form-label">Upload Contract Registry</label>
@@ -209,7 +239,7 @@ const StopOrderProcess = (props) => {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Start Stoporder Processing</button>
+                    <button type="button" class="btn btn-primary" onClick={runStopOrder}>Start Stoporder Processing</button>
                 </div>
                 </div>
             </div>

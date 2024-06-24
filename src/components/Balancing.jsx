@@ -23,7 +23,7 @@ export const Balancing = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/balance_bales.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/balance_bales.php', requestOptions)
             .then(response => response.json())
             .then(data => {
 
@@ -78,7 +78,7 @@ export const Balancing = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/get_bales_for_processing.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/get_bales_for_processing.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data,"my new data")
@@ -187,7 +187,7 @@ export const Balancing = (props) => {
                         <th>Sale</th>
                         <th>Selling Point</th>
                         <th>Sale Date</th>
-                        <th>ID</th>
+                        <th>TDN ID</th>
                         <th>Batch</th>
                         <th>Bales</th>
                         <th>GrowerId</th>
@@ -215,7 +215,7 @@ export const Balancing = (props) => {
                                         <td>{props.balancingData[i].selling_point_name}</td>
                                         <td>15-05-2024</td>
                                         <td>{props.balancingData[i].transporter_growersid}</td>
-                                        <td>0001</td>
+                                        <td>{props.balancingData[i].sale_batchid}</td>
                                         <td>{props.balancingData[i].number_of_bales}</td>
                                         <td>{props.balancingData[i].growerid}</td>
                                         <td>{props.balancingData[i].already_balanced}</td>
@@ -228,16 +228,16 @@ export const Balancing = (props) => {
 
 
                                     <tr   id={id} >
-                                        <td>{props.balancingData[i].grower_num}</td>
-                                        <td>{props.balancingData[i].name +" "+props.balancingData[i].surname}</td>
-                                        <td>{props.balancingData[i].splitid}</td>
-                                        <td>{props.balancingData[i].selling_point_name}</td>
-                                        <td>15-05-2024</td>
-                                        <td>{props.balancingData[i].transporter_growersid}</td>
-                                        <td>0001</td>
-                                        <td>{props.balancingData[i].number_of_bales}</td>
-                                        <td>{props.balancingData[i].growerid}</td>
-                                        <td>{props.balancingData[i].already_balanced}</td>
+                                        <td><b>{props.balancingData[i].grower_num}</b></td>
+                                        <td><b>{props.balancingData[i].name +" "+props.balancingData[i].surname}</b></td>
+                                        <td><b>{props.balancingData[i].splitid}</b></td>
+                                        <td><b>{props.balancingData[i].selling_point_name}</b></td>
+                                        <td><b>15-05-2024</b></td>
+                                        <td><b>{props.balancingData[i].transporter_growersid}</b></td>
+                                        <td><b>{props.balancingData[i].sale_batchid}</b></td>
+                                        <td><b>{props.balancingData[i].number_of_bales}</b></td>
+                                        <td><b>{props.balancingData[i].growerid}</b></td>
+                                        <td><b>{props.balancingData[i].already_balanced}</b></td>
                                         <td><a href="" data-bs-toggle="modal" data-bs-target="#example2"  id={id} value={id} onClick={getBales}>Confirm Tickets</a></td>
 
                                     </tr>
