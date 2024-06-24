@@ -389,7 +389,7 @@ class App extends Component {
 
   }
   salesbatchingclick=()=>{
-    console.log("pri")
+
     this.setState({"route":"Batching"})
   }
 
