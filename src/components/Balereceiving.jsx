@@ -30,7 +30,7 @@ export const Balereceiving = (props) => {
                 };
 
 
-                fetch('http://localhost/king/api/create_bale_junus.php', requestOptions)
+                fetch('http://'+props.id_address+'/king/api/create_bale_junus.php', requestOptions)
                     .then(response => response.json())
                     .then(data => {
                         console.log(data[0])

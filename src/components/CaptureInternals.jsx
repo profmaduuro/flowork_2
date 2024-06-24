@@ -30,7 +30,7 @@ export const CaptureInternals = (props) => {
             })
         };
 
-        fetch('http://localhost/king/api/create_split_internal_stop_order.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/create_split_internal_stop_order.php', requestOptions)
             .then(response => response.json())
             .then(data => {
 
@@ -71,7 +71,7 @@ export const CaptureInternals = (props) => {
             })
         };
 
-        fetch('http://localhost/king/api/get_bales_for_processing.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/get_bales_for_processing.php', requestOptions)
             .then(response => response.json())
             .then(data => {
 
@@ -148,7 +148,7 @@ export const CaptureInternals = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/get_split_internal_stop_order.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/get_split_internal_stop_order.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data,"my new data")

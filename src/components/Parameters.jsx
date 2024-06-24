@@ -3,13 +3,15 @@ import './parameters.css'
 
 const Parameters = (props) => {
 
-    const createAfforestration=()=>{
+    const createGrowerCharges=()=>{
 
+
+        var statutory=document.getElementById("statutory").value;
         var selling_pointid = document.getElementById("selling_pointid").value;
-        var afforestration_charge = document.getElementById("afforestration_charge").value;
-        var afforestration_charge_type = document.getElementById("afforestration_charge_type").value;
-        var afforestration_priority = document.getElementById("afforestration_priority").value;
-        var afforestration_on_of = document.getElementById("afforestration_on_of").value;
+        var amount = document.getElementById("amount").value;
+        var charge_type = document.getElementById("charge_type").value;
+        var creditor_number = document.getElementById("creditor_number").value;
+
 
 
 
@@ -18,16 +20,16 @@ const Parameters = (props) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 selling_pointid: selling_pointid,
-                //statutoryid: ,
-                charge_typeid: afforestration_charge_type,
-                // amount:date,
-                // creditor_no:growerid,
+                statutoryid: statutory,
+                charge_typeid: charge_type,
+                amount:amount,
+                creditor_no:creditor_number,
                 userid: 1
             })
         };
 
 
-        fetch('http://localhost/king/api/balance_bales.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/create_grower_charges.php', requestOptions)
             .then(response => response.json())
             .then(data => {
 
@@ -81,11 +83,13 @@ const Parameters = (props) => {
                 props.statutoryValueData.map((u,i)=>{
                     return(
                         <tr >
-                            <td>Weighing & Auction</td>
-                            <td>Bale</td>
-                            <td>2</td>
-                            <td>7.5</td>
-                            <td>Vision Leaf Tobacco</td>
+                            <td>{props.statutoryValueData[i].description}</td>
+                            <td>{props.statutoryValueData[i].charge_type}</td>
+                            <td>{props.statutoryValueData[i].creditor_no}</td>
+                            <td>{props.statutoryValueData[i].amount}</td>
+                            <td>{props.statutoryValueData[i].selling_point}</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     )
                 })
@@ -177,34 +181,37 @@ const Parameters = (props) => {
                     <div className='row'>
                         <div className='col'>
                         <label htmlFor="">Statutory</label>
-                        <select name="" id="" className='form-control'>
-                            <option value="">Select Statutory</option>
-                            <option value="">Afforestration</option>
-                            <option value="">MOA</option>
-                            <option value="">MOA</option>
-                            <option value="">Weighing & Auction</option>
-                            <option value="">Floor Commission</option>
-                            <option value="">Service Charge</option>
-                            <option value="">Bank Charge</option>
+                        <select name="" id="statutory" className='form-control'>
+                            {
+                                props.statutoryData.map((u,i)=>{
+                                    return(
+                                        <option value={props.statutoryData[i].id}>{props.statutoryData[i].description}</option>
+                                    )
+                                })
+                            }
+
                         </select>
                         </div>
                         <div className='col'>
                         <label htmlFor="">Amount/Value</label>
-                        <input name="" id="" className='form-control' type='text'/>
+                        <input name="" id="amount" className='form-control' type='text'/>
                         </div>
                         <div className='col'>
                         <label htmlFor="">Charge Type</label>
-                        <select name="" id="" className='form-control'>
-                            <option value="">Select Charge Type</option>
-                            <option value="">Mass</option>
-                            <option value="">Value</option>
-                            <option value="">Bales</option>
-                            <option value="">Mass & Value</option>
+                        <select name="" id="charge_type" className='form-control'>
+                            {
+                                props.chargeTypeData.map((u,i)=>{
+                                    return(
+                                        <option value={props.chargeTypeData[i].id}>{props.chargeTypeData[i].description}</option>
+                                    )
+                                })
+                            }
+
                         </select>
                         </div>
                         <div className='col'>
-                        <label htmlFor="">Priority</label>
-                        <input name="" id="" className='form-control' type='number'/>
+                        <label htmlFor="">Creditor #</label>
+                        <input name="" id="creditor_number" className='form-control' type='number'/>
                             
                         </div>
 
@@ -214,7 +221,7 @@ const Parameters = (props) => {
                 </div>
                 <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onClick={createGrowerCharges}>Submit</button>
                     </div>
 
                 </div>

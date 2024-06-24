@@ -1,4 +1,5 @@
 import React from 'react'
+import jsPDF from "jspdf";
 
 export const Tickets = (props) => {
     let id=0;
@@ -22,13 +23,80 @@ export const Tickets = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/tickets.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/tickets.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 getProcessedBarcodes()
             });
 
     }
+
+    const downloadTickets=()=>{
+        id=document.getElementById("id").value
+
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                transporter_growersid: id,
+                userid: 1,
+                created_at:"06-08-2024"
+            })
+        };
+
+
+        fetch('http://'+props.id_address+'/king/api/download_tickets.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                //getProcessedBarcodes()
+
+                let grower_num="";
+                let group="";
+                let lot="";
+                let mass="";
+                let barcode="";
+                let temp_barcode="";
+                let splitid="";
+                let sale_date="";
+                let sequence="";
+
+
+                console.log(data)
+                const doc= new jsPDF("l","",[215,75]);
+
+                doc.setDisplayMode("fullheight","tworight","FullScreen")
+
+
+                data.map((u,i)=>{
+                    //doc.addPage("l")
+                     grower_num=data[i].grower_num;
+                     group=data[i].bale_group;
+                     lot=data[i].lot;
+                     mass=data[i].mass;
+                     barcode=data[i].barcode;
+                     temp_barcode=data[i].temp_barcode;
+                     splitid=data[i].splitid;
+                     sale_date=data[i].sale_date;
+                    // doc.setDisplayMode("fullpage")
+
+
+                    doc.text(group,40,22).setFontSize(12).setFont(undefined, 'bold');
+                    doc.text(sale_date,60,22).setFontSize(12).setFont(undefined, 'bold');
+                    doc.text(sequence,80,22).setFontSize(12).setFont(undefined, 'bold');
+
+                    doc.text(barcode+" *** "+temp_barcode,15,55).setFontSize(12).setFont(undefined, 'bold');
+                    doc.text(grower_num,15,70).setFontSize(12).setFont(undefined, 'bold');
+                    doc.text(lot,70,70).setFontSize(12).setFont(undefined, 'bold');
+                    doc.text(mass,90,70).setFontSize(12).setFont(undefined, 'bold');
+
+                    doc.addPage("l")
+                })
+
+                doc.save("tickets.pdf")
+            });
+    }
+
 
     const getBales=(event)=>{
          id = event.target.id;
@@ -62,7 +130,7 @@ export const Tickets = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/get_tickets.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data,"my new data")
@@ -141,7 +209,7 @@ export const Tickets = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/get_tickets.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data,"my new data")
@@ -301,7 +369,7 @@ export const Tickets = (props) => {
                 </div>
                 <br />
                 <div>
-                <button className='btn btn-primary' download>Download Tickets  <i className='bi bi-download'></i></button>
+                <button className='btn btn-primary' download onClick={downloadTickets}>Download Tickets  <i className='bi bi-download'></i></button>
                 </div>  
                 </div>
                 </div>

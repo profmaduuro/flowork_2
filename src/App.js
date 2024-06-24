@@ -54,6 +54,7 @@ class App extends Component {
     super()
     this.state={
       "route":"",
+      "ip_address":"",
       "userid":0,
       "ticketsData":[],
       "growerDeliveryData":[],
@@ -67,12 +68,24 @@ class App extends Component {
       "captureInternalsData":[],
       "chargeTypeData":[],
       "internalStopOrdersData":[],
-      "statutoryValueData":[]
+      "statutoryValueData":[],
+      "statutoryData":[]
 
     }
   }
 
   componentDidMount(){
+
+    fetch('http://'+window.location.host+'/config.txt')
+        .then(response => response.text())
+        .then(data => {
+          console.log(data,"hellooooooooooooooo")
+          this.setState({"ip_address":data})
+        });
+
+   // alert(this.state.ip_address)
+
+    console.log(this.state.ip_address+"my ip")
 
   }
 
@@ -101,7 +114,8 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_start_of_days.php', requestOptions)
+
+    fetch('http://'+this.state.ip_address+'/king/api/get_start_of_days.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -127,7 +141,22 @@ class App extends Component {
   }
   stoporderproclick=()=>{
 
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://'+this.state.ip_address+'/king/api/get_selling_points.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"sellingPointsData":data})
+        });
+
     this.setState({"route":"StopOrderProcess"})
   }
 
@@ -148,14 +177,14 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_selling_points.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_selling_points.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           this.setState({"sellingPointsData":data})
         });
 
-    fetch('http://localhost/king/api/get_buyers.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_buyers.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -183,7 +212,7 @@ class App extends Component {
 
 
 
-    fetch('http://localhost/king/api/get_buyers.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_buyers.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -208,25 +237,33 @@ class App extends Component {
       })
     };
 
-    fetch('http://localhost/king/api/get_selling_points.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_selling_points.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           this.setState({"sellingPointsData":data})
         });
 
-    fetch('http://localhost/king/api/get_charges_type.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_charges_type.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           this.setState({"chargeTypeData":data})
         });
 
-    fetch('http://localhost/king/api/get_statutory_values.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_statutory_values.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           this.setState({"statutoryValueData":data})
+        });
+
+
+    fetch('http://'+this.state.ip_address+'/king/api/get_statutory.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"statutoryData":data})
         });
 
 
@@ -245,14 +282,14 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_transporter_dnotes.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_transporter_dnotes.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           this.setState({"deliveryNoteData":data})
         });
 
-    fetch('http://localhost/king/api/get_grower_dnotes.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_grower_dnotes.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -279,7 +316,7 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_bales_ready_for_tickets.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_bales_ready_for_tickets.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -299,7 +336,7 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_bales_ready_for_tickets.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_bales_ready_for_tickets.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -331,6 +368,7 @@ class App extends Component {
   }
 
   balancingclick=()=>{
+
     const requestOptions = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -340,7 +378,7 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_growers_ready_for_processing.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_growers_ready_for_processing.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -348,14 +386,29 @@ class App extends Component {
         });
 
     this.setState({"route":"Balancing"})
+
   }
   salesbatchingclick=()=>{
-    console.log("pri")
+
     this.setState({"route":"Batching"})
   }
 
   salesclick=()=>{
-    console.log("pri")
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        userid: 1
+      })
+    };
+
+
+    fetch('http://'+this.state.ip_address+'/king/api/get_selling_points.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          this.setState({"sellingPointsData":data})
+        });
     this.setState({"route":"Sales"})
   }
 
@@ -375,7 +428,7 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_charges_type.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_charges_type.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -383,14 +436,14 @@ class App extends Component {
         });
 
 
-    fetch('http://localhost/king/api/get_selling_points.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_selling_points.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           this.setState({"sellingPointsData":data})
         });
 
-    fetch('http://localhost/king/api/get_internal_stop_orders.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_internal_stop_orders.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -416,14 +469,14 @@ class App extends Component {
     };
 
 
-    fetch('http://localhost/king/api/get_growers_for_internal_deduction.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_growers_for_internal_deduction.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
           this.setState({"captureInternalsData":data})
         });
 
-    fetch('http://localhost/king/api/get_internal_stop_orders.php', requestOptions)
+    fetch('http://'+this.state.ip_address+'/king/api/get_internal_stop_orders.php', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -446,8 +499,6 @@ class App extends Component {
   
 
 
-
-
   render(){
 
     if(this.state.route===""){
@@ -468,7 +519,7 @@ class App extends Component {
         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick}
          stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick}/>
       <Main >
-        <PageTitle/>
+        <PageTitle id_address={this.state.ip_address}/>
       </Main>
       {/* <Files /> */}
       </>
@@ -492,7 +543,7 @@ class App extends Component {
         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick}
         internalsclick={this.internalsclick}  stoprderverifyclick={this.stoprderverifyclick} />
         <Main >
-          <PageTitle/>
+          <PageTitle id_address={this.state.ip_address}/>
         </Main>
         {/* <Files /> */}
         </>
@@ -515,7 +566,7 @@ class App extends Component {
         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick}
         internalsclick={this.internalsclick}  stoprderverifyclick={this.stoprderverifyclick}/>
         <Main >
-        <Files />
+        <Files id_address={this.state.ip_address}/>
         </Main>
         
         </>
@@ -539,7 +590,7 @@ class App extends Component {
         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick}
         internalsclick={this.internalsclick}  stoprderverifyclick={this.stoprderverifyclick}/>
         <Main >
-          <SalesRun startOfDayData={this.state.startOfDayData}/>
+          <SalesRun startOfDayData={this.state.startOfDayData} id_address={this.state.ip_address}/>
         </Main>
         
         </>
@@ -563,7 +614,7 @@ class App extends Component {
        salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick}
        internalsclick={this.internalsclick}  stoprderverifyclick={this.stoprderverifyclick}/>
       <Main >
-        <GrowerReg />
+        <GrowerReg id_address={this.state.ip_address}/>
       </Main>
       
       </>
@@ -586,7 +637,7 @@ class App extends Component {
         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick} 
         internalsclick={this.internalsclick}  stoprderverifyclick={this.stoprderverifyclick}/>
         <Main >
-          <Booking />
+          <Booking id_address={this.state.ip_address}/>
         </Main>
         
         </>
@@ -609,7 +660,7 @@ class App extends Component {
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick}
          internalsclick={this.internalsclick}  stoprderverifyclick={this.stoprderverifyclick}/>
         <Main >
-          <StopOrderProcess />
+          <StopOrderProcess sellingPointsData={this.state.sellingPointsData} id_address={this.state.ip_address}/>
         </Main>
         
         </>
@@ -631,7 +682,7 @@ class App extends Component {
         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} purchasesclick={this.purchasesclick}
         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
         <Main>
-          <SellingPoint />
+          <SellingPoint id_address={this.state.ip_address}/>
         </Main>
         </>
       );
@@ -651,7 +702,7 @@ class App extends Component {
       stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} bankingclick={this.bankingclick} 
       paymentclick={this.paymentclick}  />
          <Main>
-          <Buyer sellingPointsData={this.state.sellingPointsData} buyersData={this.state.buyersData}/>
+          <Buyer sellingPointsData={this.state.sellingPointsData} buyersData={this.state.buyersData} id_address={this.state.ip_address}/>
         </Main>
         </>
       );
@@ -671,7 +722,7 @@ class App extends Component {
           salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
           internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
-          <ManageUsers />
+          <ManageUsers id_address={this.state.ip_address}/>
          </Main>
         
         </>
@@ -692,7 +743,7 @@ class App extends Component {
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick} 
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick} />
          <Main>
-          <Grades buyersData={this.state.buyersData}/>
+          <Grades buyersData={this.state.buyersData} id_address={this.state.ip_address}/>
          </Main>
         
         </>
@@ -713,7 +764,7 @@ class App extends Component {
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
-          <Backup />
+          <Backup id_address={this.state.ip_address}/>
          </Main>
 
         
@@ -736,7 +787,7 @@ class App extends Component {
         internalsclick={this.internalsclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
         stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
-          <Parameters chargeTypeData={this.state.chargeTypeData} sellingPointsData={this.state.sellingPointsData} statutoryValueData={this.state.statutoryValueData}/>
+          <Parameters id_address={this.state.ip_address} statutoryData={this.state.statutoryData} chargeTypeData={this.state.chargeTypeData} sellingPointsData={this.state.sellingPointsData} statutoryValueData={this.state.statutoryValueData}/>
          </Main>
 
         
@@ -758,7 +809,7 @@ class App extends Component {
         stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} 
         bankingclick={this.bankingclick} paymentclick={this.paymentclick} />
          <Main>
-          <Deliverynotes deliveryNoteData={this.state.deliveryNoteData} growerDeliveryNoteData={this.state.growerDeliveryNoteData}/>
+          <Deliverynotes id_address={this.state.ip_address} deliveryNoteData={this.state.deliveryNoteData} growerDeliveryNoteData={this.state.growerDeliveryNoteData}/>
          </Main>
 
         
@@ -781,7 +832,7 @@ class App extends Component {
         stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} paymentclick={this.paymentclick}
         bankingclick={this.bankingclick} />
          <Main>
-          <Balereceiving />
+          <Balereceiving id_address={this.state.ip_address}/>
          </Main>
         </>
       );
@@ -801,7 +852,7 @@ class App extends Component {
         stoprderverifyclick={this.stoprderverifyclick} internalsclick={this.internalsclick} bankingclick={this.bankingclick}
         paymentclick={this.paymentclick} />
          <Main>
-          <Tickets ticketsData={this.state.ticketsData}/>
+          <Tickets ticketsData={this.state.ticketsData} id_address={this.state.ip_address}/>
          </Main>
         </>
       );
@@ -821,7 +872,7 @@ class App extends Component {
          salesbatchingclick={this.salesbatchingclick} bankingclick={this.bankingclick} paymentclick={this.paymentclick} 
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
-          <Ticketbatching ticketsBatchingData={this.state.ticketsBatchingData} batchingclick = {this.batchingclick}/>
+          <Ticketbatching ticketsBatchingData={this.state.ticketsBatchingData} id_address={this.state.ip_address} batchingclick = {this.batchingclick}/>
          </Main>
         </>
       );
@@ -841,7 +892,7 @@ class App extends Component {
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
-          <Floorsummary />
+          <Floorsummary id_address={this.state.ip_address}/>
          </Main>
         </>
       );
@@ -861,7 +912,7 @@ class App extends Component {
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
          internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
          <Main>
-          <Dispatch />
+          <Dispatch id_address={this.state.ip_address}/>
          </Main>
         </>
       );
@@ -890,7 +941,7 @@ class App extends Component {
          salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} internalsclick={this.internalsclick}
          paymentclick={this.paymentclick} />
          <Main>
-          <Scale />
+          <Scale id_address={this.state.ip_address}/>
          </Main>
         </>
       );
@@ -910,7 +961,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick} 
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <Capture />
+              <Capture id_address={this.state.ip_address}/>
             </Main>
           </>
       );
@@ -930,7 +981,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <Balancing balancingData={this.state.balancingData}/>
+              <Balancing balancingData={this.state.balancingData} id_address={this.state.ip_address}/>
             </Main>
           </>
       );
@@ -950,7 +1001,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <Batching />
+              <Batching id_address={this.state.ip_address}/>
             </Main>
           </>
       );
@@ -970,7 +1021,7 @@ class App extends Component {
                         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
               <Main>
-                <Sales />
+                <Sales sellingPointsData={this.state.sellingPointsData}  id_address={this.state.ip_address}/>
               </Main>
             </>
         );
@@ -990,7 +1041,7 @@ class App extends Component {
                         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
               <Main>
-                <Stoporderverification />
+                <Stoporderverification id_address={this.state.ip_address}/>
               </Main>
             </>
         );
@@ -1010,7 +1061,7 @@ class App extends Component {
                         salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                         internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
               <Main>
-                <CreateInternals chargeTypeData={this.state.chargeTypeData} sellingPointsData={this.state.sellingPointsData} internalStopOrdersData={this.state.internalStopOrdersData}/>
+                <CreateInternals id_address={this.state.ip_address} chargeTypeData={this.state.chargeTypeData} sellingPointsData={this.state.sellingPointsData} internalStopOrdersData={this.state.internalStopOrdersData}/>
               </Main>
             </>
         );
@@ -1031,7 +1082,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <Purchasesummary />
+              <Purchasesummary id_address={this.state.ip_address} />
             </Main>
           </>
       );
@@ -1051,7 +1102,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <CaptureInternals captureInternalsData={this.state.captureInternalsData} internalStopOrdersData={this.state.internalStopOrdersData}/>
+              <CaptureInternals id_address={this.state.ip_address} captureInternalsData={this.state.captureInternalsData} internalStopOrdersData={this.state.internalStopOrdersData}/>
             </Main>
           </>
       );
@@ -1071,7 +1122,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <Banking />
+              <Banking id_address={this.state.ip_address}/>
             </Main>
           </>
       );
@@ -1091,7 +1142,7 @@ class App extends Component {
                       salesclick = {this.salesclick} salesbatchingclick={this.salesbatchingclick} paymentclick={this.paymentclick}
                       internalsclick={this.internalsclick} stoprderverifyclick={this.stoprderverifyclick}/>
             <Main>
-              <Payments />
+              <Payments id_address={this.state.ip_address}/>
             </Main>
           </>
       );

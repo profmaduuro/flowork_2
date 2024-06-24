@@ -27,7 +27,7 @@ export const Ticketbatching = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/create_split_sale.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/create_split_sale.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data[0].response,"Success")
@@ -72,7 +72,7 @@ export const Ticketbatching = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/get_tickets.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data,"my new data")
@@ -100,9 +100,9 @@ export const Ticketbatching = (props) => {
 
                     grower_num.appendChild(growerData)
                     barcode.appendChild(barcodeData)
-                    group .appendChild(groupData)
-                    lot .appendChild(lotData)
-                    mass .appendChild(massData)
+                    group.appendChild(groupData)
+                    lot.appendChild(lotData)
+                    mass.appendChild(massData)
                     temp_barcode.appendChild(temp_barcodeData)
                     splitid.appendChild(splitData)
 
@@ -127,6 +127,7 @@ export const Ticketbatching = (props) => {
 
 
     }
+
 
 
 
@@ -166,7 +167,7 @@ export const Ticketbatching = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/get_tickets.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/get_tickets.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data,"my new data")

@@ -31,7 +31,7 @@ export const Deliverynotes = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/create_transporter_dnote.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/create_transporter_dnote.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 //console.log(data.response)
@@ -74,7 +74,7 @@ export const Deliverynotes = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/create_transporter_grower.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/create_transporter_grower.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data[0])

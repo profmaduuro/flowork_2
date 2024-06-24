@@ -1,7 +1,69 @@
 import React from 'react'
 import './sales.css'
+import jsPDF from "jspdf";
 
 export const Sales = (props) => {
+
+    const downloadSalesSheets=()=>{
+       // var ref_id = document.getElementById("ref_id").value;
+        var selling_pointid = document.getElementById("selling_pointid_2").value;
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                selling_pointid:selling_pointid,
+                userid: 1
+            })
+        };
+
+
+        fetch('http://'+props.id_address+'/king/api/sales_sheets_data.php', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            const doc= new jsPDF("p","","a4");
+
+            doc.setDisplayMode("fullheight","tworight","FullScreen")
+            data.map((u,i)=>{
+                doc.text("Sales Sheet Design Here",40,22).setFontSize(12).setFont(undefined, 'bold');
+
+                doc.addPage("p")
+            })
+
+            doc.save("salesSheets.pdf")
+        })
+    }
+
+    const setDataValues=()=>{
+         document.getElementById("ref_id").value=0;
+         document.getElementById("batchid").value=0;
+    }
+
+    const reverseSales=()=>{
+        var ref_id = document.getElementById("ref_id").value;
+        var batch_number = document.getElementById("batchid").value;
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                ref_id: ref_id,
+                batch_number:batch_number,
+                userid: 1
+            })
+        };
+
+
+        fetch('http://'+props.id_address+'/king/api/reverse_sales_sheet.php', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data)
+            })
+    }
+
+
   return (
     <div>
          <div>
@@ -28,7 +90,7 @@ export const Sales = (props) => {
                     </div>
                 </div>
                 <div className='col'>
-                    <a class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#example4">Reverse Sales</a>
+                    <a class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#example4" onClick={setDataValues}>Reverse Sales</a>
                 </div>
                 <div className='col'>
                     {/* <button class=" btn btn-success btn-sm"></button> */}
@@ -253,10 +315,16 @@ export const Sales = (props) => {
                                     </div>
                                     <div className='col'>
                                         <label htmlFor="">Selling Point</label>
-                                        <select type="" className='form-control'>
+                                        <select type="" className='form-control' id="selling_pointid_2">
                                             <option value="">Select Selling Point</option>
-                                            <option value="">Vision Leaf Tobacco</option>
-                                            <option value="">Horizon Tobacco</option>
+                                            {
+                                                props.sellingPointsData.map((u,i)=>{
+                                                    return(
+                                                        <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                                    )
+
+                                                })
+                                            }
                                         </select>
                                     </div>
 
@@ -265,7 +333,7 @@ export const Sales = (props) => {
                            </form>
                         </div>
                         <div class="modal-footer">
-                            <button type='button' className='btn btn-primary' download>Download Report</button>
+                            <button type='button' className='btn btn-primary' download onClick={downloadSalesSheets}>Download Report</button>
                             {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
                            
                         </div>
@@ -294,8 +362,14 @@ export const Sales = (props) => {
                                         <label htmlFor="">Selling Point</label>
                                         <select type="" className='form-control'>
                                             <option value="">Select Selling Point</option>
-                                            <option value="">Vision Leaf Tobacco</option>
-                                            <option value="">Horizon Tobacco</option>
+                                            {
+                                                props.sellingPointsData.map((u,i)=>{
+                                                    return(
+                                                        <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                                    )
+
+                                                })
+                                            }
                                         </select>
                                     </div>
 
@@ -344,10 +418,16 @@ export const Sales = (props) => {
                                     </div>
                                     <div className='col'>
                                         <label htmlFor="">Selling Point</label>
-                                        <select type="" className='form-control'>
+                                        <select type="" className='form-control' id='selling_pointid'>
                                             <option value="">Select Selling Point</option>
-                                            <option value="">Vision Leaf Tobacco</option>
-                                            <option value="">Horizon Tobacco</option>
+                                            {
+                                                props.sellingPointsData.map((u,i)=>{
+                                                    return(
+                                                        <option value={props.sellingPointsData[i].id}>{props.sellingPointsData[i].name}</option>
+                                                    )
+
+                                                })
+                                            }
                                         </select>
                                     </div>
 
@@ -356,12 +436,11 @@ export const Sales = (props) => {
                                 <div className='row'>
                                     <div className='col'>
                                         <label htmlFor="">Batch</label>
-                                        <input type="text" className='form-control' />
+                                        <input type="text" className='form-control' id="batchid"/>
                                     </div>
                                     <div className='col'>
-                                        <label htmlFor="">ID</label>
-                                        <input type="text" className='form-control'/>
-                                        
+                                        <label htmlFor="">Reference ID</label>
+                                        <input type="text" className='form-control' id="ref_id"/>
                                     </div>
 
                                 </div>
@@ -386,7 +465,7 @@ export const Sales = (props) => {
                            </form>
                         </div>
                         <div class="modal-footer">
-                            <button type='button' className='btn btn-primary'>Reverse Sale</button>
+                            <button type='button' className='btn btn-primary' onClick={reverseSales}>Reverse Sale</button>
                             {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
                            
                         </div>

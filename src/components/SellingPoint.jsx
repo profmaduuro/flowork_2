@@ -24,7 +24,7 @@ const SellingPoint = (props) => {
         };
 
 
-        fetch('http://localhost/king/api/create_selling_point.php', requestOptions)
+        fetch('http://'+props.id_address+'/king/api/create_selling_point.php', requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data[0].response,"Success")

@@ -44,7 +44,7 @@ export const Capture = (props) => {
             };
 
 
-            fetch('http://localhost/king/api/get_barcode_data.php', requestOptions)
+            fetch('http://'+props.id_address+'/king/api/get_barcode_data.php', requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data[0])
@@ -105,7 +105,7 @@ export const Capture = (props) => {
             };
 
 
-            fetch('http://localhost/king/api/sold_bales.php', requestOptions)
+            fetch('http://'+props.id_address+'/king/api/sold_bales.php', requestOptions)
                 .then(response => response.json())
                 .then(data => {
 

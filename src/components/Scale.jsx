@@ -88,7 +88,7 @@ export const Scale =   (props) => {
                 };
 
 
-                fetch('http://localhost/king/api/scale.php', requestOptions)
+                fetch('http://'+props.id_address+'/king/api/scale.php', requestOptions)
                     .then(response => response.json())
                     .then(data => {
 
