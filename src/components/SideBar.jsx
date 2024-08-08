@@ -295,23 +295,29 @@ const SideBar=(props)=> {
 
             <ul id='reports-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
-                <li>
-                    <a href="#">
+                <li onClick={props.revenuesclick}>
+                    <Link to="/Revenues">
                         <i className='bi bi-circle'></i>
                 <span>Revenues</span>
-                </a>
+                </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.creditorscheduleclick}>
+                    <Link to ="/Creditorschedules">
                         <i className='bi bi-circle'></i>
                 <span>Creditor Schedules</span>
-                </a>
+                </Link>
                 </li>
-                <li>
-                    <a href="#">
+                <li onClick={props.invoicesclick}>
+                    <Link to="/Invoices">
                         <i className='bi bi-circle'></i>
                 <span>Invoices</span>
-                </a>
+                </Link>
+                </li>
+                <li onClick={props.otherreportsclick}>
+                    <Link to="/Otherreports">
+                        <i className='bi bi-circle'></i>
+                <span>Other Reports</span>
+                </Link>
                 </li>
             </ul>
         </li>
@@ -329,29 +335,11 @@ const SideBar=(props)=> {
 
             <ul id='eod-nav' className='nav-content collapse'
             data-bs-parent='#sidebar-nav'>
-                <li>
-                    <a href="#">
+                <li onClick={props.dailystatsclick}>
+                    <Link to="/DailyStats">
                         <i className='bi bi-circle'></i>
                 <span>Daily Statistics</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className='bi bi-circle'></i>
-                <span>TIMB files</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className='bi bi-circle'></i>
-                <span>Creditor Files</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className='bi bi-circle'></i>
-                <span>Earnings</span>
-                </a>
+                </Link>
                 </li>
             </ul>
         </li>

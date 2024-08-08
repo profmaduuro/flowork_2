@@ -160,178 +160,147 @@ function PageTitle() {
 
     <div className='card_2'>
 
-        <b>Deliveries</b>
+        <h4><b>Sales</b></h4>
     
-        <div className='table table-responsive'>
+        <div className='table table-responsive' data-bs-spy="scroll" style={{ maxHeight: "500px", 
+                    overflowY: "auto" }}>
 
-        <table className="table table-striped table-hover">
-            <thead>
-                <tr>
-                <th>1</th>
-                <th scope="col">DNOTE</th>
-                <th scope="col">Grower</th>
-                <th scope="col">Name</th>
-                <th scope="col">Bales</th>
-                <th scope='col'>Sell Date</th>
-                <th scope='col'>Booking</th>
-                <th scope='col'>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-             <tr>
-                <th>2</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">3</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">4</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">3</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">4</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th>2</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">3</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">4</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">3</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">4</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th>2</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">3</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">4</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">3</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
-             <tr>
-                <th scope="row">4</th>
-                <th>DN1001</th>
-                <td>Tafadzwa Maduuro</td>
-                <td>V391589</td>
-                <td>50</td>
-                <td>15/04/2024</td>
-                <td>Yes</td>
-                <td>Booking</td>
-             </tr>
+            <table className='table table-striped'>
+                    <thead style={{ position: "sticky", 
+                    top: "0" }} className='card_10'>
+                        <th>Date</th>
+                        <th>Selling Point</th>
+                        <th>Scheme</th>
+                        <th>Bales Laid</th>
+                        <th>Bales Sold</th>
+                        <th>Bales Rejected</th>
+                        <th>Total Mass</th>
+                        <th>Value Purchased</th>
+                        <th>Highest Price</th>
+                        <th>Lowest</th>
+                        <th>Avg Price</th>
+                    </thead><br />
+                    <tbody>
+                        <tr>
+                            <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
+                        <tr>
+                        <td>15-05-2024</td>
+                            <td>Vision Leaf Tobacco</td>
+                            <td>Matombo</td>
+                            <td>150</td>
+                            <td>145</td>
+                            <td>5</td>
+                            <td>1500</td>
+                            <td>30,000</td>
+                            <td>5.70</td>
+                            <td>1.00</td>
+                            <td>3.50</td>
+                        </tr>
 
-            </tbody>
-        </table>
-
+                    </tbody>
+                </table>
         </div>
         
 

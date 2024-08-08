@@ -1,10 +1,11 @@
 import React from 'react'
+import Alert from '@mui/material/Alert';
 
 export const Dispatch = (props) => {
   return (
     <div>
          <a href="/home">
-                <i className='bi bi-house-door'></i> 
+                <i className='bi bi-house-door'></i>
 
         </a>
         <h3 className='bi bi-home'>Dispatch</h3>
@@ -18,7 +19,7 @@ export const Dispatch = (props) => {
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav">
                         <a href="" class="nav-item nav-link active" data-bs-toggle="modal" data-bs-target="#example3">Create Truck</a>
-                        <a href="" class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#example"></a>
+                        <a href="" class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#success-animation">test</a>
                         <a href="" class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#example2"></a>
                     </div>
                 </div>
@@ -27,6 +28,28 @@ export const Dispatch = (props) => {
 
         <br />
         <br />
+
+            {/* <div className=''>
+            <Alert severity="success">This is a success Alert.</Alert>
+            </div>
+            <br />
+            <div>
+                <Alert severity="info">This is an info Alert.</Alert>
+            </div>
+            <br />
+            <div>
+            <Alert severity="warning">This is a warning Alert.</Alert>
+            </div>
+            <br />
+            
+            <div>
+            <Alert severity="error">This is an error Alert.</Alert>
+            </div>
+            <br />
+             */}
+
+            
+        
 
         <div className='card_10'>
         
@@ -73,7 +96,7 @@ export const Dispatch = (props) => {
                     </div>
                     <br />
                     <div>
-                        <button type='submit' className='btn btn-primary'>Close Dispatch Truck</button>
+                        <button type='submit' className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#success-animation">Close Dispatch Truck</button>
                     </div>
 
                     
@@ -301,7 +324,7 @@ export const Dispatch = (props) => {
                     </div>
                 </div>
                 <div>
-                    <button className='btn btn-secondary'> Download Shipment File</button>
+                    <button className='btn btn-secondary' > Download Shipment File</button>
                 </div>
                 
                 </div>
@@ -311,6 +334,8 @@ export const Dispatch = (props) => {
             </div>
        
         </div>
+
+       
 
         {/* modals */}
 
@@ -376,6 +401,23 @@ export const Dispatch = (props) => {
                 </div>
             </div>
        </div>
+       <div className="modal" id="success-animation">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="alert alert-success alert-dismissible">
+                <button type="button" class="btn-close" data-dismiss="alert" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                <strong>Success!</strong> This alert box could indicate a successful or positive action.
+            </div>
+            {/* <div class="alert alert-primary alert-dismissible">
+                <button type="button" class="btn-close" data-dismiss="alert" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                <strong>Primary!</strong> Indicates an important action.
+            </div> */}
+            </div>
+        </div>
+
+       </div>
+       
+                
 
        <div className="modal fade" id="example4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
